@@ -390,6 +390,73 @@ debug\moc_mainwindow.cpp: C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMainWindow \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QIODevice \
 		..\QTerminal\serialconnector.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		..\QTerminal\mainwindow.h \
+		ui_mainwindow.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QCheckBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcheckbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QComboBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcombobox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextformat.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMenuBar \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qmenubar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qmenu.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPlainTextEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qplaintextedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtextedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextdocument.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qabstracttextdocumentlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qglyphrun.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qrawfont.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qfontdatabase.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QStatusBar \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstatusbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QToolBar \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtoolbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
 		..\QTerminal\mainwindow.h
 	C:\Qt\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.5/msvc2013_64/mkspecs/win32-msvc2013 -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal -IC:/Qt/5.5/msvc2013_64/include -IC:/Qt/5.5/msvc2013_64/include/QtWidgets -IC:/Qt/5.5/msvc2013_64/include/QtGui -IC:/Qt/5.5/msvc2013_64/include/QtANGLE -IC:/Qt/5.5/msvc2013_64/include/QtSerialPort -IC:/Qt/5.5/msvc2013_64/include/QtCore -I. ..\QTerminal\mainwindow.h -o debug\moc_mainwindow.cpp
 
@@ -615,6 +682,75 @@ debug\moc_serialconnector.cpp: C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMainWind
 		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\qserialportinfo.h \
 		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\qtserialportversion.h \
 		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\QSerialPortInfo \
+		..\QTerminal\mainwindow.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QIODevice \
+		..\QTerminal\serialconnector.h \
+		ui_mainwindow.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QCheckBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcheckbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QComboBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcombobox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextformat.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMenuBar \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qmenubar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qmenu.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPlainTextEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qplaintextedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtextedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextdocument.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qabstracttextdocumentlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qglyphrun.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qrawfont.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qfontdatabase.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QStatusBar \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstatusbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QToolBar \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtoolbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
 		..\QTerminal\serialconnector.h
 	C:\Qt\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.5/msvc2013_64/mkspecs/win32-msvc2013 -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal -IC:/Qt/5.5/msvc2013_64/include -IC:/Qt/5.5/msvc2013_64/include/QtWidgets -IC:/Qt/5.5/msvc2013_64/include/QtGui -IC:/Qt/5.5/msvc2013_64/include/QtANGLE -IC:/Qt/5.5/msvc2013_64/include/QtSerialPort -IC:/Qt/5.5/msvc2013_64/include/QtCore -I. ..\QTerminal\serialconnector.h -o debug\moc_serialconnector.cpp
 
@@ -863,11 +999,72 @@ debug\main.obj: ..\QTerminal\main.cpp ../QTerminal/mainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QIODevice \
 		../QTerminal/serialconnector.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		ui_mainwindow.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
-		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QCheckBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcheckbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QComboBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcombobox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextformat.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMenuBar \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qmenubar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qmenu.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPlainTextEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qplaintextedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtextedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextdocument.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qabstracttextdocumentlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qglyphrun.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qrawfont.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qfontdatabase.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QStatusBar \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstatusbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QToolBar \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtoolbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout
 
 debug\mainwindow.obj: ..\QTerminal\mainwindow.cpp ../QTerminal/mainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMainWindow \
@@ -1143,14 +1340,20 @@ debug\mainwindow.obj: ..\QTerminal\mainwindow.cpp ../QTerminal/mainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMenuBar \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qmenubar.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qmenu.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPlainTextEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qplaintextedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtextedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextdocument.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qabstracttextdocumentlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qglyphrun.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qrawfont.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qfontdatabase.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QStatusBar \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstatusbar.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QTextEdit \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtextedit.h \
-		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextdocument.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QToolBar \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtoolbar.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout
@@ -1377,7 +1580,75 @@ debug\serialconnector.obj: ..\QTerminal\serialconnector.cpp ../QTerminal/serialc
 		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\qserialportglobal.h \
 		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\qserialportinfo.h \
 		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\qtserialportversion.h \
-		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\QSerialPortInfo
+		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\QSerialPortInfo \
+		../QTerminal/mainwindow.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QIODevice \
+		ui_mainwindow.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QCheckBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcheckbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QComboBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcombobox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextformat.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMenuBar \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qmenubar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qmenu.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPlainTextEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qplaintextedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtextedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextdocument.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qabstracttextdocumentlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qglyphrun.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qrawfont.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qfontdatabase.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QStatusBar \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstatusbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QToolBar \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtoolbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout
 
 debug\moc_mainwindow.obj: debug\moc_mainwindow.cpp 
 

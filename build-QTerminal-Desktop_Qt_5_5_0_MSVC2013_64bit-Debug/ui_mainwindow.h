@@ -22,10 +22,10 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -44,23 +44,15 @@ public:
     QLabel *label;
     QPushButton *ClearButton1;
     QSpacerItem *horizontalSpacer;
-    QTextEdit *textEdit;
+    QPlainTextEdit *outputBox;
     QHBoxLayout *horizontalLayout_3;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_2;
     QPushButton *ClearButton2;
     QSpacerItem *horizontalSpacer_2;
-    QLineEdit *lineEdit;
+    QLineEdit *inputBox;
     QGroupBox *groupBox_2;
-    QPushButton *connectButton;
-    QPushButton *pushButton_4;
-    QPushButton *pushButton_5;
-    QPushButton *disconnectButton;
-    QCheckBox *checkBox;
-    QCheckBox *checkBox_2;
-    QCheckBox *checkBox_3;
-    QCheckBox *checkBox_4;
-    QCheckBox *checkBox_5;
+    QPushButton *sendButton;
     QWidget *widget;
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout_5;
@@ -71,6 +63,20 @@ public:
     QLabel *label_4;
     QSpacerItem *horizontalSpacer_3;
     QComboBox *baudBox;
+    QWidget *widget1;
+    QHBoxLayout *horizontalLayout_8;
+    QVBoxLayout *verticalLayout_4;
+    QCheckBox *checkBoxCR;
+    QCheckBox *checkBoxLF;
+    QCheckBox *checkBoxCRLF;
+    QVBoxLayout *verticalLayout_5;
+    QCheckBox *checkBoxDTR;
+    QCheckBox *checkBox_4;
+    QCheckBox *checkBox;
+    QWidget *widget2;
+    QHBoxLayout *horizontalLayout_7;
+    QPushButton *connectButton;
+    QPushButton *disconnectButton;
     QLabel *statusLabel;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
@@ -120,10 +126,10 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_4);
 
-        textEdit = new QTextEdit(layoutWidget);
-        textEdit->setObjectName(QStringLiteral("textEdit"));
+        outputBox = new QPlainTextEdit(layoutWidget);
+        outputBox->setObjectName(QStringLiteral("outputBox"));
 
-        verticalLayout->addWidget(textEdit);
+        verticalLayout->addWidget(outputBox);
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setSpacing(6);
@@ -151,41 +157,17 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_3);
 
-        lineEdit = new QLineEdit(layoutWidget);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        inputBox = new QLineEdit(layoutWidget);
+        inputBox->setObjectName(QStringLiteral("inputBox"));
 
-        verticalLayout->addWidget(lineEdit);
+        verticalLayout->addWidget(inputBox);
 
         groupBox_2 = new QGroupBox(centralWidget);
         groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
         groupBox_2->setGeometry(QRect(500, 20, 221, 321));
-        connectButton = new QPushButton(groupBox_2);
-        connectButton->setObjectName(QStringLiteral("connectButton"));
-        connectButton->setGeometry(QRect(10, 230, 75, 23));
-        pushButton_4 = new QPushButton(groupBox_2);
-        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        pushButton_4->setGeometry(QRect(10, 260, 75, 23));
-        pushButton_5 = new QPushButton(groupBox_2);
-        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
-        pushButton_5->setGeometry(QRect(10, 290, 75, 23));
-        disconnectButton = new QPushButton(groupBox_2);
-        disconnectButton->setObjectName(QStringLiteral("disconnectButton"));
-        disconnectButton->setGeometry(QRect(90, 230, 75, 23));
-        checkBox = new QCheckBox(groupBox_2);
-        checkBox->setObjectName(QStringLiteral("checkBox"));
-        checkBox->setGeometry(QRect(20, 140, 70, 17));
-        checkBox_2 = new QCheckBox(groupBox_2);
-        checkBox_2->setObjectName(QStringLiteral("checkBox_2"));
-        checkBox_2->setGeometry(QRect(100, 140, 70, 17));
-        checkBox_3 = new QCheckBox(groupBox_2);
-        checkBox_3->setObjectName(QStringLiteral("checkBox_3"));
-        checkBox_3->setGeometry(QRect(20, 160, 70, 17));
-        checkBox_4 = new QCheckBox(groupBox_2);
-        checkBox_4->setObjectName(QStringLiteral("checkBox_4"));
-        checkBox_4->setGeometry(QRect(100, 160, 70, 17));
-        checkBox_5 = new QCheckBox(groupBox_2);
-        checkBox_5->setObjectName(QStringLiteral("checkBox_5"));
-        checkBox_5->setGeometry(QRect(20, 180, 70, 17));
+        sendButton = new QPushButton(groupBox_2);
+        sendButton->setObjectName(QStringLiteral("sendButton"));
+        sendButton->setGeometry(QRect(11, 291, 75, 23));
         widget = new QWidget(groupBox_2);
         widget->setObjectName(QStringLiteral("widget"));
         widget->setGeometry(QRect(10, 30, 184, 55));
@@ -235,9 +217,77 @@ public:
 
         verticalLayout_2->addLayout(horizontalLayout_6);
 
+        widget1 = new QWidget(groupBox_2);
+        widget1->setObjectName(QStringLiteral("widget1"));
+        widget1->setGeometry(QRect(10, 130, 181, 67));
+        horizontalLayout_8 = new QHBoxLayout(widget1);
+        horizontalLayout_8->setSpacing(6);
+        horizontalLayout_8->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
+        horizontalLayout_8->setContentsMargins(0, 0, 0, 0);
+        verticalLayout_4 = new QVBoxLayout();
+        verticalLayout_4->setSpacing(6);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        checkBoxCR = new QCheckBox(widget1);
+        checkBoxCR->setObjectName(QStringLiteral("checkBoxCR"));
+
+        verticalLayout_4->addWidget(checkBoxCR);
+
+        checkBoxLF = new QCheckBox(widget1);
+        checkBoxLF->setObjectName(QStringLiteral("checkBoxLF"));
+
+        verticalLayout_4->addWidget(checkBoxLF);
+
+        checkBoxCRLF = new QCheckBox(widget1);
+        checkBoxCRLF->setObjectName(QStringLiteral("checkBoxCRLF"));
+
+        verticalLayout_4->addWidget(checkBoxCRLF);
+
+
+        horizontalLayout_8->addLayout(verticalLayout_4);
+
+        verticalLayout_5 = new QVBoxLayout();
+        verticalLayout_5->setSpacing(6);
+        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
+        checkBoxDTR = new QCheckBox(widget1);
+        checkBoxDTR->setObjectName(QStringLiteral("checkBoxDTR"));
+
+        verticalLayout_5->addWidget(checkBoxDTR);
+
+        checkBox_4 = new QCheckBox(widget1);
+        checkBox_4->setObjectName(QStringLiteral("checkBox_4"));
+
+        verticalLayout_5->addWidget(checkBox_4);
+
+        checkBox = new QCheckBox(widget1);
+        checkBox->setObjectName(QStringLiteral("checkBox"));
+
+        verticalLayout_5->addWidget(checkBox);
+
+
+        horizontalLayout_8->addLayout(verticalLayout_5);
+
+        widget2 = new QWidget(groupBox_2);
+        widget2->setObjectName(QStringLiteral("widget2"));
+        widget2->setGeometry(QRect(12, 232, 158, 25));
+        horizontalLayout_7 = new QHBoxLayout(widget2);
+        horizontalLayout_7->setSpacing(6);
+        horizontalLayout_7->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
+        horizontalLayout_7->setContentsMargins(0, 0, 0, 0);
+        connectButton = new QPushButton(widget2);
+        connectButton->setObjectName(QStringLiteral("connectButton"));
+
+        horizontalLayout_7->addWidget(connectButton);
+
+        disconnectButton = new QPushButton(widget2);
+        disconnectButton->setObjectName(QStringLiteral("disconnectButton"));
+
+        horizontalLayout_7->addWidget(disconnectButton);
+
         statusLabel = new QLabel(centralWidget);
         statusLabel->setObjectName(QStringLiteral("statusLabel"));
-        statusLabel->setGeometry(QRect(20, 350, 47, 13));
+        statusLabel->setGeometry(QRect(20, 350, 261, 16));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -251,6 +301,9 @@ public:
         MainWindow->setStatusBar(statusBar);
 
         retranslateUi(MainWindow);
+        QObject::connect(inputBox, SIGNAL(returnPressed()), sendButton, SLOT(click()));
+        QObject::connect(ClearButton2, SIGNAL(pressed()), inputBox, SLOT(clear()));
+        QObject::connect(ClearButton1, SIGNAL(pressed()), outputBox, SLOT(clear()));
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
@@ -264,15 +317,7 @@ public:
         label_2->setText(QApplication::translate("MainWindow", "TextLabel", 0));
         ClearButton2->setText(QApplication::translate("MainWindow", "Clear", 0));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "Connect", 0));
-        connectButton->setText(QApplication::translate("MainWindow", "Connect", 0));
-        pushButton_4->setText(QApplication::translate("MainWindow", "Reconnect", 0));
-        pushButton_5->setText(QApplication::translate("MainWindow", "PushButton", 0));
-        disconnectButton->setText(QApplication::translate("MainWindow", "Disconnect", 0));
-        checkBox->setText(QApplication::translate("MainWindow", "CR", 0));
-        checkBox_2->setText(QApplication::translate("MainWindow", "DTR", 0));
-        checkBox_3->setText(QApplication::translate("MainWindow", "LF", 0));
-        checkBox_4->setText(QApplication::translate("MainWindow", "CheckBox", 0));
-        checkBox_5->setText(QApplication::translate("MainWindow", "CR + LF", 0));
+        sendButton->setText(QApplication::translate("MainWindow", "Send", 0));
         label_3->setText(QApplication::translate("MainWindow", "Port:", 0));
         rescanButton->setText(QApplication::translate("MainWindow", "Rescan", 0));
         label_4->setText(QApplication::translate("MainWindow", "Baud Rate:", 0));
@@ -280,8 +325,24 @@ public:
         baudBox->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "300", 0)
          << QApplication::translate("MainWindow", "600", 0)
+         << QApplication::translate("MainWindow", "1200", 0)
+         << QApplication::translate("MainWindow", "2400", 0)
          << QApplication::translate("MainWindow", "9600", 0)
+         << QApplication::translate("MainWindow", "14400", 0)
+         << QApplication::translate("MainWindow", "19200", 0)
+         << QApplication::translate("MainWindow", "22800", 0)
+         << QApplication::translate("MainWindow", "38400", 0)
+         << QApplication::translate("MainWindow", "57600", 0)
+         << QApplication::translate("MainWindow", "115200", 0)
         );
+        checkBoxCR->setText(QApplication::translate("MainWindow", "CR", 0));
+        checkBoxLF->setText(QApplication::translate("MainWindow", "LF", 0));
+        checkBoxCRLF->setText(QApplication::translate("MainWindow", "CR + LF", 0));
+        checkBoxDTR->setText(QApplication::translate("MainWindow", "DTR", 0));
+        checkBox_4->setText(QApplication::translate("MainWindow", "CheckBox", 0));
+        checkBox->setText(QApplication::translate("MainWindow", "CheckBox", 0));
+        connectButton->setText(QApplication::translate("MainWindow", "Connect", 0));
+        disconnectButton->setText(QApplication::translate("MainWindow", "Disconnect", 0));
         statusLabel->setText(QApplication::translate("MainWindow", "TextLabel", 0));
     } // retranslateUi
 

@@ -21,6 +21,8 @@ public:
     SerialConnector(MainWindow*);
     ~SerialConnector();
 
+    void WriteToSerial(QString);
+
     QString m_port;
     QString m_baud;
     qint32 m_baudrate;
@@ -36,9 +38,21 @@ public slots:
     void choosePort(int);
     void chooseBaud(int);
 
+    void CR_Checkbox(int);
+    void LF_Checkbox(int);
+    void CRLF_Checkbox(int);
+    void DTR_Checkbox(int);
+
+    void getDataFromInputBox();
+    void ReadFromSerial();
 
 private:
     QSerialPort *m_serial;
+
+    bool m_CR;
+    bool m_LF;
+    bool m_CRLF;
+    int m_DTR;
 };
 
 #endif // SERIALCONNECTOR_H
