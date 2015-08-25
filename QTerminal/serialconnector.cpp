@@ -174,26 +174,30 @@ void SerialConnector::ReadFromSerial()
 {
     if (!m_serial)
         return;
-
     if (!m_serial->isOpen())
         return;
 
-    int old_size = m_qb.size();
+    m_qb  = m_serial->readAll();
+    int old_size;
+    old_size = m_qb.size();
+    //myMainWindow->outputBox->setPlainText(m_qb);
     m_qb.append(m_serial->readAll());
     int new_size = m_qb.size();
 
-    if (m_qb.at(new_size - 1) == '\r')
+    if ((m_qb.at(new_size - 1) == '\n') || (m_qb.at(new_size - 1) == '\r'))
     {
         QString text(m_qb);
         myMainWindow->outputBox->appendPlainText(text);
         m_qb.clear();
     }
     qDebug() << "read from Serial: " << m_qb;
+    emit finished();
 }
 
 // Memberfunction to write to Serial.
 void SerialConnector::WriteToSerial(QString data)
 {
+    qDebug()<< "was here";
     qDebug() <<"Data to send: " << data << endl;
     if (!data.isEmpty())
     {

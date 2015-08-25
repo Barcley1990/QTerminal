@@ -6,7 +6,7 @@
 #include <QtSerialPort/QtSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
 #include "mainwindow.h"
-
+#include <QThread>
 
 class MainWindow;
 
@@ -29,7 +29,10 @@ public:
     QString m_dbits;
     QByteArray m_qb;
 
+
 signals:
+    void finished();
+    void error(QString err);
 
 public slots:
     void configure();
@@ -48,6 +51,7 @@ public slots:
 
 private:
     QSerialPort *m_serial;
+    QThread *thread;
 
     bool m_CR;
     bool m_LF;

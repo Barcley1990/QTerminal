@@ -1064,7 +1064,8 @@ debug\main.obj: ..\QTerminal\main.cpp ../QTerminal/mainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstatusbar.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QToolBar \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtoolbar.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QThread
 
 debug\mainwindow.obj: ..\QTerminal\mainwindow.cpp ../QTerminal/mainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMainWindow \
