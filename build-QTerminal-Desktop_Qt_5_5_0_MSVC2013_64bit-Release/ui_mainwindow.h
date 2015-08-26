@@ -841,12 +841,12 @@ public:
         actionAbout->setText(QApplication::translate("MainWindow", "About", 0));
         actionConfigure->setText(QApplication::translate("MainWindow", "Configure", 0));
         groupBox->setTitle(QApplication::translate("MainWindow", "Serial", 0));
-        label->setText(QApplication::translate("MainWindow", "TextLabel", 0));
+        label->setText(QApplication::translate("MainWindow", "Output", 0));
         ClearButton1->setText(QApplication::translate("MainWindow", "Clear", 0));
         cbAutoscroll->setText(QApplication::translate("MainWindow", "Autoscroll", 0));
-        label_2->setText(QApplication::translate("MainWindow", "TextLabel", 0));
+        label_2->setText(QApplication::translate("MainWindow", "Input", 0));
         ClearButton2->setText(QApplication::translate("MainWindow", "Clear", 0));
-        groupBox_2->setTitle(QApplication::translate("MainWindow", "Connect", 0));
+        groupBox_2->setTitle(QApplication::translate("MainWindow", "Settings", 0));
         sendButton->setText(QApplication::translate("MainWindow", "Send", 0));
         checkBoxCR->setText(QApplication::translate("MainWindow", "CR", 0));
         checkBoxLF->setText(QApplication::translate("MainWindow", "LF", 0));
@@ -856,7 +856,7 @@ public:
         checkBox->setText(QApplication::translate("MainWindow", "CheckBox", 0));
         connectButton->setText(QApplication::translate("MainWindow", "Connect", 0));
         disconnectButton->setText(QApplication::translate("MainWindow", "Disconnect", 0));
-        settingsButton->setText(QApplication::translate("MainWindow", "Settings", 0));
+        settingsButton->setText(QApplication::translate("MainWindow", "Configure", 0));
         label_3->setText(QApplication::translate("MainWindow", "Port:", 0));
         label_4->setText(QApplication::translate("MainWindow", "Baud Rate:", 0));
         label_5->setText(QApplication::translate("MainWindow", "Data Bits:", 0));

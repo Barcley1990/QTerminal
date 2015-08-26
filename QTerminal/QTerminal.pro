@@ -16,11 +16,14 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
         serialconnector.cpp \
-        settingsdialog.cpp
+        settingsdialog.cpp \
+    macrodialog.cpp
 
 HEADERS  += mainwindow.h \
          serialconnector.h \
-         settingsdialog.h
+         settingsdialog.h \
+    macrodialog.h
 
 FORMS    += mainwindow.ui \
-         settingsdialog.ui
+         settingsdialog.ui \
+    macrodialog.ui

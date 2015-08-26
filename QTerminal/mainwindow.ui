@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>738</width>
-    <height>430</height>
+    <width>749</width>
+    <height>519</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -18,8 +18,8 @@
   </property>
   <property name="maximumSize">
    <size>
-    <width>738</width>
-    <height>430</height>
+    <width>1000</width>
+    <height>800</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -517,7 +517,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
           <item>
            <widget class="QLabel" name="label">
             <property name="text">
-             <string>TextLabel</string>
+             <string>Output</string>
             </property>
            </widget>
           </item>
@@ -562,7 +562,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
           <item>
            <widget class="QLabel" name="label_2">
             <property name="text">
-             <string>TextLabel</string>
+             <string>Input</string>
             </property>
            </widget>
           </item>
@@ -606,7 +606,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
      </rect>
     </property>
     <property name="title">
-     <string>Connect</string>
+     <string>Settings</string>
     </property>
     <widget class="QPushButton" name="sendButton">
      <property name="geometry">
@@ -719,7 +719,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
       </rect>
      </property>
      <property name="text">
-      <string>Settings</string>
+      <string>Configure</string>
      </property>
     </widget>
     <widget class="QWidget" name="layoutWidget">
@@ -807,7 +807,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>340</y>
+      <y>460</y>
       <width>261</width>
       <height>16</height>
      </rect>
@@ -816,13 +816,91 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
      <string>Disconected</string>
     </property>
    </widget>
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>340</y>
+      <width>701</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Macros</string>
+    </property>
+    <widget class="QPushButton" name="setMacrosButton">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Set Macros</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="m1Button">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>20</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>M1</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="m2Button">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>20</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>M2</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="m3Button">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>20</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>M3</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="m4Button">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>20</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>M4</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>738</width>
+     <width>749</width>
      <height>21</height>
     </rect>
    </property>
@@ -843,8 +921,15 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
      <addaction name="actionConnect"/>
      <addaction name="actionDisconnect"/>
     </widget>
+    <widget class="QMenu" name="menuMacros">
+     <property name="title">
+      <string>Macros</string>
+     </property>
+     <addaction name="actionSet_Makros"/>
+    </widget>
     <addaction name="menuCalls"/>
     <addaction name="actionConfigure"/>
+    <addaction name="menuMacros"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -882,6 +967,11 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
     <string>Configure</string>
    </property>
   </action>
+  <action name="actionSet_Makros">
+   <property name="text">
+    <string>Set Makros</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
@@ -893,12 +983,12 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>441</x>
-     <y>345</y>
+     <x>442</x>
+     <y>335</y>
     </hint>
     <hint type="destinationlabel">
-     <x>582</x>
-     <y>356</y>
+     <x>572</x>
+     <y>344</y>
     </hint>
    </hints>
   </connection>
@@ -909,12 +999,12 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>114</x>
-     <y>318</y>
+     <x>92</x>
+     <y>307</y>
     </hint>
     <hint type="destinationlabel">
-     <x>120</x>
-     <y>349</y>
+     <x>121</x>
+     <y>335</y>
     </hint>
    </hints>
   </connection>
@@ -925,8 +1015,8 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>102</x>
-     <y>86</y>
+     <x>100</x>
+     <y>75</y>
     </hint>
     <hint type="destinationlabel">
      <x>108</x>

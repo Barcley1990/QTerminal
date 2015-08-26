@@ -63,9 +63,9 @@ public:
     {
         if (SettingsDialog->objectName().isEmpty())
             SettingsDialog->setObjectName(QStringLiteral("SettingsDialog"));
-        SettingsDialog->resize(285, 274);
-        SettingsDialog->setMinimumSize(QSize(285, 274));
-        SettingsDialog->setMaximumSize(QSize(285, 274));
+        SettingsDialog->resize(500, 274);
+        SettingsDialog->setMinimumSize(QSize(500, 274));
+        SettingsDialog->setMaximumSize(QSize(500, 274));
         SettingsDialog->setStyleSheet(QLatin1String("QToolTip\n"
 "{\n"
 "     border: 1px solid black;\n"

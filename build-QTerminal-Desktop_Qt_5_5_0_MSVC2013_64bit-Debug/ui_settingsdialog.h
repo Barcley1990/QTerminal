@@ -63,9 +63,9 @@ public:
     {
         if (SettingsDialog->objectName().isEmpty())
             SettingsDialog->setObjectName(QStringLiteral("SettingsDialog"));
-        SettingsDialog->resize(285, 274);
-        SettingsDialog->setMinimumSize(QSize(285, 274));
-        SettingsDialog->setMaximumSize(QSize(285, 274));
+        SettingsDialog->resize(500, 274);
+        SettingsDialog->setMinimumSize(QSize(500, 274));
+        SettingsDialog->setMaximumSize(QSize(500, 274));
         SettingsDialog->setStyleSheet(QLatin1String("QToolTip\n"
 "{\n"
 "     border: 1px solid black;\n"
@@ -529,14 +529,13 @@ public:
 "\n"
 "QCheckBox::indicator:checked\n"
 "{\n"
-"    image:url(:/images/checkbox.png);\n"
+"    image:url(checkbox.png);\n"
 "}\n"
 "\n"
 "QCheckBox::indicator:disabled, QRadioButton::indicator:disabled\n"
 "{\n"
 "    border: 1px solid #444;\n"
-""
-                        "}"));
+"}"));
         gridLayout_3 = new QGridLayout(SettingsDialog);
         gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
         parametersBox = new QGroupBox(SettingsDialog);
