@@ -26,6 +26,7 @@ SerialConnector::SerialConnector(MainWindow *mWindow) : myMainWindow(mWindow)
     connect(myMainWindow->checkBoxDTR, SIGNAL(stateChanged(int)), this, SLOT(DTR_Checkbox(int)));
     connect(myMainWindow->sendButton, SIGNAL(clicked()), this, SLOT(getDataFromInputBox()));	// Write to Serial
 
+    connect(myMainWindow->actionConfigure, SIGNAL(triggered()), m_settings, SLOT(show()));
 }
 
 SerialConnector::~SerialConnector()
@@ -53,10 +54,11 @@ void SerialConnector::closeSerialPort()
     // reset connect button's text to Connect
     myMainWindow->connectButton->setText("Connect");
     myMainWindow->statusLabel->setText("Disconnected");
+    myMainWindow->actionConnect->setEnabled(true);
+    myMainWindow->actionDisconnect->setEnabled(false);
 }
 void SerialConnector::openSerialPort()
 {
-
     SettingsDialog::Settings p = m_settings->settings();
     myMainWindow->portLabel->setText(p.name);
     myMainWindow->baudRateLabel->setText(p.stringBaudRate);
@@ -79,6 +81,9 @@ void SerialConnector::openSerialPort()
     // set connect button's text to Reconnect
     myMainWindow->connectButton->setText("Reconnect");
     myMainWindow->statusLabel->setText("Conected");
+
+    myMainWindow->actionConnect->setEnabled(false);
+    myMainWindow->actionDisconnect->setEnabled(true);
 }
 void SerialConnector::DTR_Checkbox(int arg)
 {

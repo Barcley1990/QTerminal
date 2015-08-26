@@ -50,7 +50,6 @@ public slots:
 
 private:
     QSerialPort *m_serial;
-    QThread *thread;
     SettingsDialog *m_settings;
 
     bool m_CR;

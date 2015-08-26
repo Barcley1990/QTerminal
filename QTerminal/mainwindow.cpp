@@ -6,6 +6,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
     setupUi(this);
     m_serial = new SerialConnector(this);
+    actionConnect->setEnabled(true);
+    actionDisconnect->setEnabled(false);
+    actionConfigure->setEnabled(true);
+    initActionsConnections();;
 
 }
 
@@ -15,15 +19,14 @@ MainWindow::~MainWindow()
 
 }
 
-/*
+
 void MainWindow::initActionsConnections()
 {
-    connect(ui->actionConnect, SIGNAL(triggered()), this, SLOT(openSerialPort()));
-    connect(ui->actionDisconnect, SIGNAL(triggered()), this, SLOT(closeSerialPort()));
-    connect(ui->actionQuit, SIGNAL(triggered()), this, SLOT(close()));
-    connect(ui->actionConfigure, SIGNAL(triggered()), settings, SLOT(show()));
-    connect(ui->actionClear, SIGNAL(triggered()), console, SLOT(clear()));
-    connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(about()));
-    connect(ui->actionAboutQt, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
+    connect(actionConnect, SIGNAL(triggered()), m_serial, SLOT(openSerialPort()));
+    connect(actionDisconnect, SIGNAL(triggered()), m_serial, SLOT(closeSerialPort()));
+    connect(actionQuit, SIGNAL(triggered()), this, SLOT(close()));
+    //connect(actionConfigure, SIGNAL(triggered()), settings, SLOT(show()));
+    connect(actionAbout, SIGNAL(triggered()), m_serial, SLOT(about()));
+    //connect(actionAboutQt, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
 }
-*/
+

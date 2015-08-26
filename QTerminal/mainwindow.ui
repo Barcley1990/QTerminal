@@ -248,7 +248,7 @@
       <string>Settings</string>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>11</x>
@@ -288,7 +288,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>74</x>
@@ -339,7 +339,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Disconected</string>
     </property>
    </widget>
   </widget>
@@ -366,10 +366,11 @@
      <property name="title">
       <string>Calls</string>
      </property>
-     <addaction name="actionConnect_2"/>
+     <addaction name="actionConnect"/>
      <addaction name="actionDisconnect"/>
     </widget>
     <addaction name="menuCalls"/>
+    <addaction name="actionConfigure"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -390,7 +391,7 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="actionConnect_2">
+  <action name="actionConnect">
    <property name="text">
     <string>Connect</string>
    </property>
@@ -408,6 +409,11 @@
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
+   </property>
+  </action>
+  <action name="actionConfigure">
+   <property name="text">
+    <string>Configure</string>
    </property>
   </action>
  </widget>

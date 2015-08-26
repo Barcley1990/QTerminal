@@ -35,10 +35,11 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
-    QAction *actionConnect_2;
+    QAction *actionConnect;
     QAction *actionDisconnect;
     QAction *actionQuit;
     QAction *actionAbout;
+    QAction *actionConfigure;
     QWidget *centralWidget;
     QGroupBox *groupBox;
     QWidget *layoutWidget;
@@ -73,13 +74,13 @@ public:
     QPushButton *connectButton;
     QPushButton *disconnectButton;
     QPushButton *settingsButton;
-    QWidget *widget;
+    QWidget *layoutWidget3;
     QVBoxLayout *verticalLayout_3;
     QLabel *label_3;
     QLabel *label_4;
     QLabel *label_5;
     QLabel *label_6;
-    QWidget *widget1;
+    QWidget *layoutWidget4;
     QVBoxLayout *verticalLayout_2;
     QLabel *portLabel;
     QLabel *baudRateLabel;
@@ -99,14 +100,16 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
         MainWindow->resize(1295, 768);
-        actionConnect_2 = new QAction(MainWindow);
-        actionConnect_2->setObjectName(QStringLiteral("actionConnect_2"));
+        actionConnect = new QAction(MainWindow);
+        actionConnect->setObjectName(QStringLiteral("actionConnect"));
         actionDisconnect = new QAction(MainWindow);
         actionDisconnect->setObjectName(QStringLiteral("actionDisconnect"));
         actionQuit = new QAction(MainWindow);
         actionQuit->setObjectName(QStringLiteral("actionQuit"));
         actionAbout = new QAction(MainWindow);
         actionAbout->setObjectName(QStringLiteral("actionAbout"));
+        actionConfigure = new QAction(MainWindow);
+        actionConfigure->setObjectName(QStringLiteral("actionConfigure"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         groupBox = new QGroupBox(centralWidget);
@@ -264,58 +267,58 @@ public:
         settingsButton = new QPushButton(groupBox_2);
         settingsButton->setObjectName(QStringLiteral("settingsButton"));
         settingsButton->setGeometry(QRect(10, 20, 191, 23));
-        widget = new QWidget(groupBox_2);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(11, 61, 56, 72));
-        verticalLayout_3 = new QVBoxLayout(widget);
+        layoutWidget3 = new QWidget(groupBox_2);
+        layoutWidget3->setObjectName(QStringLiteral("layoutWidget3"));
+        layoutWidget3->setGeometry(QRect(11, 61, 56, 72));
+        verticalLayout_3 = new QVBoxLayout(layoutWidget3);
         verticalLayout_3->setSpacing(6);
         verticalLayout_3->setContentsMargins(11, 11, 11, 11);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
-        label_3 = new QLabel(widget);
+        label_3 = new QLabel(layoutWidget3);
         label_3->setObjectName(QStringLiteral("label_3"));
 
         verticalLayout_3->addWidget(label_3);
 
-        label_4 = new QLabel(widget);
+        label_4 = new QLabel(layoutWidget3);
         label_4->setObjectName(QStringLiteral("label_4"));
 
         verticalLayout_3->addWidget(label_4);
 
-        label_5 = new QLabel(widget);
+        label_5 = new QLabel(layoutWidget3);
         label_5->setObjectName(QStringLiteral("label_5"));
 
         verticalLayout_3->addWidget(label_5);
 
-        label_6 = new QLabel(widget);
+        label_6 = new QLabel(layoutWidget3);
         label_6->setObjectName(QStringLiteral("label_6"));
 
         verticalLayout_3->addWidget(label_6);
 
-        widget1 = new QWidget(groupBox_2);
-        widget1->setObjectName(QStringLiteral("widget1"));
-        widget1->setGeometry(QRect(74, 62, 121, 72));
-        verticalLayout_2 = new QVBoxLayout(widget1);
+        layoutWidget4 = new QWidget(groupBox_2);
+        layoutWidget4->setObjectName(QStringLiteral("layoutWidget4"));
+        layoutWidget4->setGeometry(QRect(74, 62, 121, 72));
+        verticalLayout_2 = new QVBoxLayout(layoutWidget4);
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setContentsMargins(11, 11, 11, 11);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
-        portLabel = new QLabel(widget1);
+        portLabel = new QLabel(layoutWidget4);
         portLabel->setObjectName(QStringLiteral("portLabel"));
 
         verticalLayout_2->addWidget(portLabel);
 
-        baudRateLabel = new QLabel(widget1);
+        baudRateLabel = new QLabel(layoutWidget4);
         baudRateLabel->setObjectName(QStringLiteral("baudRateLabel"));
 
         verticalLayout_2->addWidget(baudRateLabel);
 
-        DatabitsLabel = new QLabel(widget1);
+        DatabitsLabel = new QLabel(layoutWidget4);
         DatabitsLabel->setObjectName(QStringLiteral("DatabitsLabel"));
 
         verticalLayout_2->addWidget(DatabitsLabel);
 
-        parityLabel = new QLabel(widget1);
+        parityLabel = new QLabel(layoutWidget4);
         parityLabel->setObjectName(QStringLiteral("parityLabel"));
 
         verticalLayout_2->addWidget(parityLabel);
@@ -348,7 +351,8 @@ public:
         menuBar->addAction(menuHelp->menuAction());
         menuMain->addAction(actionQuit);
         menuTerminal->addAction(menuCalls->menuAction());
-        menuCalls->addAction(actionConnect_2);
+        menuTerminal->addAction(actionConfigure);
+        menuCalls->addAction(actionConnect);
         menuCalls->addAction(actionDisconnect);
         menuHelp->addAction(actionAbout);
 
@@ -363,10 +367,11 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        actionConnect_2->setText(QApplication::translate("MainWindow", "Connect", 0));
+        actionConnect->setText(QApplication::translate("MainWindow", "Connect", 0));
         actionDisconnect->setText(QApplication::translate("MainWindow", "Disconnect", 0));
         actionQuit->setText(QApplication::translate("MainWindow", "Quit", 0));
         actionAbout->setText(QApplication::translate("MainWindow", "About", 0));
+        actionConfigure->setText(QApplication::translate("MainWindow", "Configure", 0));
         groupBox->setTitle(QApplication::translate("MainWindow", "Serial", 0));
         label->setText(QApplication::translate("MainWindow", "TextLabel", 0));
         ClearButton1->setText(QApplication::translate("MainWindow", "Clear", 0));
@@ -392,7 +397,7 @@ public:
         baudRateLabel->setText(QApplication::translate("MainWindow", "nA", 0));
         DatabitsLabel->setText(QApplication::translate("MainWindow", "nA", 0));
         parityLabel->setText(QApplication::translate("MainWindow", "nA", 0));
-        statusLabel->setText(QApplication::translate("MainWindow", "TextLabel", 0));
+        statusLabel->setText(QApplication::translate("MainWindow", "Disconected", 0));
         menuMain->setTitle(QApplication::translate("MainWindow", "Main", 0));
         menuTerminal->setTitle(QApplication::translate("MainWindow", "Terminal", 0));
         menuCalls->setTitle(QApplication::translate("MainWindow", "Calls", 0));
