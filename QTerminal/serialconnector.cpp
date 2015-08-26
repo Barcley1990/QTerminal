@@ -1,23 +1,25 @@
 #include "serialconnector.h"
 
+
 SerialConnector::SerialConnector(MainWindow *mWindow) : myMainWindow(mWindow)
 {
     qDebug() << "SerialConnector->Constructor";
     m_serial = new QSerialPort();
     m_settings = new SettingsDialog;
 
-
+    m_autoScroll = false;
     m_CR = false;
     m_LF = false;
     m_CRLF = false;
+
     // Read from Serial
     connect(m_serial, SIGNAL(readyRead()), this, SLOT(ReadFromSerial()));
     // show Settingsdialog
     connect(myMainWindow->settingsButton, SIGNAL(clicked()), m_settings, SLOT(show()));
-
     connect(myMainWindow->connectButton, SIGNAL(clicked()), this, SLOT(openSerialPort()));			// connect to Port (Pushbutton)
     connect(myMainWindow->disconnectButton, SIGNAL(clicked()), this, SLOT(closeSerialPort()));		// disconnect from Port (Pushbutton)
 
+    connect(myMainWindow->cbAutoscroll, SIGNAL(stateChanged(int)), this, SLOT(autoScrollCheckbox(int)));
     connect(myMainWindow->checkBoxCR, SIGNAL(stateChanged(int)), this, SLOT(CR_Checkbox(int)));		// CR Checkbox
     connect(myMainWindow->checkBoxLF, SIGNAL(stateChanged(int)), this, SLOT(LF_Checkbox(int)));		// CR Checkbox
     connect(myMainWindow->checkBoxCRLF, SIGNAL(stateChanged(int)), this, SLOT(CRLF_Checkbox(int)));	// CR Checkbox
@@ -122,6 +124,15 @@ void SerialConnector::CRLF_Checkbox(int arg)
     else
         m_CRLF = false;
 }
+void SerialConnector::autoScrollCheckbox(int arg)
+{
+    int autoscroll = arg;
+    qDebug() << "autoscroll changed";
+    if (autoscroll == 2) // if checked
+        m_autoScroll = true;
+    else
+        m_autoScroll = false;
+}
 
 // Slot is called if send button was clicked.
 void SerialConnector::getDataFromInputBox()
@@ -135,14 +146,18 @@ void SerialConnector::getDataFromInputBox()
 // Slot to read from serial
 void SerialConnector::ReadFromSerial()
 {
-    qDebug() << "Read from Serial";
+    //qDebug() << "Read from Serial";
     if (!m_serial)
         return;
     if (!m_serial->isOpen())
         return;
     QByteArray data = m_serial->readAll();
-     myMainWindow->outputBox->appendPlainText(data);
+    myMainWindow->outputBox->insertPlainText(data);
 
+    if(m_autoScroll) {
+    QScrollBar *sb = myMainWindow->outputBox->verticalScrollBar();
+    sb->setValue(sb->maximum());
+    }
 
 /*
     m_qb  = m_serial->readAll();

@@ -5,9 +5,12 @@
 #include <QWidget>
 #include <QtSerialPort/QtSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
+#include <QThread>
+#include <QScrollBar>
+
 #include "mainwindow.h"
 #include "settingsdialog.h"
-#include <QThread>
+
 
 class MainWindow;
 
@@ -40,6 +43,7 @@ public slots:
     void LF_Checkbox(int);
     void CRLF_Checkbox(int);
     void DTR_Checkbox(int);
+    void autoScrollCheckbox(int);
 
     void getDataFromInputBox();
     void ReadFromSerial();
@@ -53,6 +57,7 @@ private:
     bool m_LF;
     bool m_CRLF;
     int m_DTR;
+    bool m_autoScroll;
 };
 
 #endif // SERIALCONNECTOR_H

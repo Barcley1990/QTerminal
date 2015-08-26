@@ -22,10 +22,10 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -48,7 +48,8 @@ public:
     QLabel *label;
     QPushButton *ClearButton1;
     QSpacerItem *horizontalSpacer;
-    QPlainTextEdit *outputBox;
+    QCheckBox *cbAutoscroll;
+    QTextBrowser *outputBox;
     QHBoxLayout *horizontalLayout_3;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_2;
@@ -142,10 +143,15 @@ public:
 
         horizontalLayout_4->addItem(horizontalSpacer);
 
+        cbAutoscroll = new QCheckBox(layoutWidget);
+        cbAutoscroll->setObjectName(QStringLiteral("cbAutoscroll"));
+
+        horizontalLayout_4->addWidget(cbAutoscroll);
+
 
         verticalLayout->addLayout(horizontalLayout_4);
 
-        outputBox = new QPlainTextEdit(layoutWidget);
+        outputBox = new QTextBrowser(layoutWidget);
         outputBox->setObjectName(QStringLiteral("outputBox"));
 
         verticalLayout->addWidget(outputBox);
@@ -349,7 +355,7 @@ public:
         retranslateUi(MainWindow);
         QObject::connect(inputBox, SIGNAL(returnPressed()), sendButton, SLOT(click()));
         QObject::connect(ClearButton2, SIGNAL(pressed()), inputBox, SLOT(clear()));
-        QObject::connect(ClearButton1, SIGNAL(pressed()), outputBox, SLOT(clear()));
+        QObject::connect(ClearButton1, SIGNAL(clicked()), outputBox, SLOT(clear()));
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
@@ -364,6 +370,7 @@ public:
         groupBox->setTitle(QApplication::translate("MainWindow", "Serial", 0));
         label->setText(QApplication::translate("MainWindow", "TextLabel", 0));
         ClearButton1->setText(QApplication::translate("MainWindow", "Clear", 0));
+        cbAutoscroll->setText(QApplication::translate("MainWindow", "Autoscroll", 0));
         label_2->setText(QApplication::translate("MainWindow", "TextLabel", 0));
         ClearButton2->setText(QApplication::translate("MainWindow", "Clear", 0));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "Connect", 0));

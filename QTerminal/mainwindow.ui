@@ -69,10 +69,17 @@
           </property>
          </spacer>
         </item>
+        <item>
+         <widget class="QCheckBox" name="cbAutoscroll">
+          <property name="text">
+           <string>Autoscroll</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </item>
       <item>
-       <widget class="QPlainTextEdit" name="outputBox"/>
+       <widget class="QTextBrowser" name="outputBox"/>
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -441,17 +448,17 @@
   </connection>
   <connection>
    <sender>ClearButton1</sender>
-   <signal>pressed()</signal>
+   <signal>clicked()</signal>
    <receiver>outputBox</receiver>
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>132</x>
-     <y>84</y>
+     <x>102</x>
+     <y>86</y>
     </hint>
     <hint type="destinationlabel">
-     <x>132</x>
-     <y>180</y>
+     <x>108</x>
+     <y>123</y>
     </hint>
    </hints>
   </connection>
