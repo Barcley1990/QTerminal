@@ -15,9 +15,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    serialconnector.cpp
+        serialconnector.cpp \
+        settingsdialog.cpp
 
 HEADERS  += mainwindow.h \
-    serialconnector.h
+         serialconnector.h \
+         settingsdialog.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+         settingsdialog.ui

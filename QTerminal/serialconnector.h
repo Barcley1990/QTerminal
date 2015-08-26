@@ -6,6 +6,7 @@
 #include <QtSerialPort/QtSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
 #include "mainwindow.h"
+#include "settingsdialog.h"
 #include <QThread>
 
 class MainWindow;
@@ -21,12 +22,10 @@ public:
     SerialConnector(MainWindow*);
     ~SerialConnector();
 
+
+
     void WriteToSerial(QString);
 
-    QString m_port;
-    QString m_baud;
-    qint32 m_baudrate;
-    QString m_dbits;
     QByteArray m_qb;
 
 
@@ -35,12 +34,8 @@ signals:
     void error(QString err);
 
 public slots:
-    void configure();
-    void disconnect();
-    void scanPortNames();
-    void choosePort(int);
-    void chooseBaud(int);
-
+    void openSerialPort();
+    void closeSerialPort();
     void CR_Checkbox(int);
     void LF_Checkbox(int);
     void CRLF_Checkbox(int);
@@ -52,6 +47,7 @@ public slots:
 private:
     QSerialPort *m_serial;
     QThread *thread;
+    SettingsDialog *m_settings;
 
     bool m_CR;
     bool m_LF;
