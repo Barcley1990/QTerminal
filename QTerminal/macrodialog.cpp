@@ -4,6 +4,7 @@
 #include <QDebug>
 QT_USE_NAMESPACE
 
+class MainWindow;
 static const char blankString[] = QT_TRANSLATE_NOOP("Macro Settings", "N/A");
 
 MacroDialog::MacroDialog(QWidget *parent) :
@@ -14,9 +15,8 @@ MacroDialog::MacroDialog(QWidget *parent) :
 
     connect(ui->macroEdit_1, SIGNAL(textEdited(QString)), this, SLOT(macroEdited_1()));
     connect(ui->macroName_1, SIGNAL(textEdited(QString)), this, SLOT(macroEdited_1()));
+    connect(ui->macroName_1, SIGNAL(textEdited(QString)), parent, SLOT(updateMacroButtons(QString)));
     connect(ui->macroRepeatTime_1, SIGNAL(textEdited(QString)), this, SLOT(macroEdited_1()));
-
-
 }
 
 MacroDialog::~MacroDialog()
@@ -33,8 +33,6 @@ void MacroDialog::macroEdited_1()
     qDebug() << m1.name;
     qDebug() << m1.value;
     qDebug() << m1.repeatTime;
-
-    ui->macroButton_1->setText(m1.name);
 
 
 }

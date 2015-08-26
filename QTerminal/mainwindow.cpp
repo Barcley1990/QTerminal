@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     actionConfigure->setEnabled(true);
     initActionsConnections();
 
+
 }
 
 MainWindow::~MainWindow()
@@ -35,5 +36,11 @@ void MainWindow::initActionsConnections()
     //connect(actionConfigure, SIGNAL(triggered()), settings, SLOT(show()));
     connect(actionAbout, SIGNAL(triggered()), m_serial, SLOT(about()));
     //connect(actionAboutQt, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
+}
+void MainWindow::updateMacroButtons(QString string)
+{
+    m1Button->setText(string);
+
+    MacroDialog::Macros m1; qDebug() << m1.name << "asd";
 }
 
