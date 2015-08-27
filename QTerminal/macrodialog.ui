@@ -487,7 +487,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
    <property name="title">
     <string>GroupBox</string>
    </property>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -526,44 +526,97 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
    <property name="title">
     <string>Transmit</string>
    </property>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>34</y>
       <width>471</width>
-      <height>56</height>
+      <height>118</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QLineEdit" name="macroEdit_1"/>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QLineEdit" name="macroEdit_1"/>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="macroName_1">
+           <property name="text">
+            <string>M1</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="macroRepeatTime_1">
+           <property name="text">
+            <string>1000</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="macroRepeat_1">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
-        <widget class="QLineEdit" name="macroName_1">
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QLineEdit" name="macroEdit_2"/>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="macroName_2">
+           <property name="text">
+            <string>M2</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="macroRepeatTime_2">
+           <property name="text">
+            <string>1000</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="macroRepeat_2">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <item>
+        <widget class="QLineEdit" name="macroEdit_3"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="macroName_3">
          <property name="text">
           <string>M1</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="macroButton_1">
-         <property name="text">
-          <string>M1</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="macroRepeatTime_1">
+        <widget class="QLineEdit" name="macroRepeatTime_3">
          <property name="text">
           <string>1000</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="macroRepeat_1">
+        <widget class="QCheckBox" name="macroRepeat_3">
          <property name="text">
           <string/>
          </property>
@@ -572,33 +625,26 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <layout class="QHBoxLayout" name="horizontalLayout_6">
        <item>
-        <widget class="QLineEdit" name="macroEdit_2"/>
+        <widget class="QLineEdit" name="macroEdit_4"/>
        </item>
        <item>
-        <widget class="QLineEdit" name="macroName_2">
+        <widget class="QLineEdit" name="macroName_4">
          <property name="text">
           <string>M2</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="macroButton_2">
-         <property name="text">
-          <string>M1</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="macroRepeatTime_2">
+        <widget class="QLineEdit" name="macroRepeatTime_4">
          <property name="text">
           <string>1000</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="macroRepeat_2">
+        <widget class="QCheckBox" name="macroRepeat_4">
          <property name="text">
           <string/>
          </property>

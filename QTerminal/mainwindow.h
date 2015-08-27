@@ -25,6 +25,7 @@ public:
     ~MainWindow();
     void initActionsConnections();
 
+
 public slots:
     void updateMacroButtons(QString string);
 

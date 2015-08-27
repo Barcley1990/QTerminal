@@ -29,25 +29,34 @@ class Ui_MacroDialog
 {
 public:
     QGroupBox *groupBox;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout;
     QPushButton *loadMacroButton;
     QPushButton *safeMacroButton;
     QGroupBox *groupBox_2;
-    QWidget *widget1;
+    QWidget *layoutWidget1;
+    QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_3;
     QLineEdit *macroEdit_1;
     QLineEdit *macroName_1;
-    QPushButton *macroButton_1;
     QLineEdit *macroRepeatTime_1;
     QCheckBox *macroRepeat_1;
     QHBoxLayout *horizontalLayout_4;
     QLineEdit *macroEdit_2;
     QLineEdit *macroName_2;
-    QPushButton *macroButton_2;
     QLineEdit *macroRepeatTime_2;
     QCheckBox *macroRepeat_2;
+    QHBoxLayout *horizontalLayout_5;
+    QLineEdit *macroEdit_3;
+    QLineEdit *macroName_3;
+    QLineEdit *macroRepeatTime_3;
+    QCheckBox *macroRepeat_3;
+    QHBoxLayout *horizontalLayout_6;
+    QLineEdit *macroEdit_4;
+    QLineEdit *macroName_4;
+    QLineEdit *macroRepeatTime_4;
+    QCheckBox *macroRepeat_4;
 
     void setupUi(QDialog *MacroDialog)
     {
@@ -528,18 +537,18 @@ public:
         groupBox = new QGroupBox(MacroDialog);
         groupBox->setObjectName(QStringLiteral("groupBox"));
         groupBox->setGeometry(QRect(10, 20, 491, 51));
-        widget = new QWidget(groupBox);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(10, 20, 191, 25));
-        horizontalLayout = new QHBoxLayout(widget);
+        layoutWidget = new QWidget(groupBox);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(10, 20, 191, 25));
+        horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        loadMacroButton = new QPushButton(widget);
+        loadMacroButton = new QPushButton(layoutWidget);
         loadMacroButton->setObjectName(QStringLiteral("loadMacroButton"));
 
         horizontalLayout->addWidget(loadMacroButton);
 
-        safeMacroButton = new QPushButton(widget);
+        safeMacroButton = new QPushButton(layoutWidget);
         safeMacroButton->setObjectName(QStringLiteral("safeMacroButton"));
 
         horizontalLayout->addWidget(safeMacroButton);
@@ -547,35 +556,32 @@ public:
         groupBox_2 = new QGroupBox(MacroDialog);
         groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
         groupBox_2->setGeometry(QRect(10, 80, 491, 391));
-        widget1 = new QWidget(groupBox_2);
-        widget1->setObjectName(QStringLiteral("widget1"));
-        widget1->setGeometry(QRect(10, 34, 471, 56));
-        verticalLayout = new QVBoxLayout(widget1);
+        layoutWidget1 = new QWidget(groupBox_2);
+        layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(10, 34, 471, 118));
+        verticalLayout_2 = new QVBoxLayout(layoutWidget1);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
+        verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        macroEdit_1 = new QLineEdit(widget1);
+        macroEdit_1 = new QLineEdit(layoutWidget1);
         macroEdit_1->setObjectName(QStringLiteral("macroEdit_1"));
 
         horizontalLayout_3->addWidget(macroEdit_1);
 
-        macroName_1 = new QLineEdit(widget1);
+        macroName_1 = new QLineEdit(layoutWidget1);
         macroName_1->setObjectName(QStringLiteral("macroName_1"));
 
         horizontalLayout_3->addWidget(macroName_1);
 
-        macroButton_1 = new QPushButton(widget1);
-        macroButton_1->setObjectName(QStringLiteral("macroButton_1"));
-
-        horizontalLayout_3->addWidget(macroButton_1);
-
-        macroRepeatTime_1 = new QLineEdit(widget1);
+        macroRepeatTime_1 = new QLineEdit(layoutWidget1);
         macroRepeatTime_1->setObjectName(QStringLiteral("macroRepeatTime_1"));
 
         horizontalLayout_3->addWidget(macroRepeatTime_1);
 
-        macroRepeat_1 = new QCheckBox(widget1);
+        macroRepeat_1 = new QCheckBox(layoutWidget1);
         macroRepeat_1->setObjectName(QStringLiteral("macroRepeat_1"));
 
         horizontalLayout_3->addWidget(macroRepeat_1);
@@ -585,33 +591,81 @@ public:
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
-        macroEdit_2 = new QLineEdit(widget1);
+        macroEdit_2 = new QLineEdit(layoutWidget1);
         macroEdit_2->setObjectName(QStringLiteral("macroEdit_2"));
 
         horizontalLayout_4->addWidget(macroEdit_2);
 
-        macroName_2 = new QLineEdit(widget1);
+        macroName_2 = new QLineEdit(layoutWidget1);
         macroName_2->setObjectName(QStringLiteral("macroName_2"));
 
         horizontalLayout_4->addWidget(macroName_2);
 
-        macroButton_2 = new QPushButton(widget1);
-        macroButton_2->setObjectName(QStringLiteral("macroButton_2"));
-
-        horizontalLayout_4->addWidget(macroButton_2);
-
-        macroRepeatTime_2 = new QLineEdit(widget1);
+        macroRepeatTime_2 = new QLineEdit(layoutWidget1);
         macroRepeatTime_2->setObjectName(QStringLiteral("macroRepeatTime_2"));
 
         horizontalLayout_4->addWidget(macroRepeatTime_2);
 
-        macroRepeat_2 = new QCheckBox(widget1);
+        macroRepeat_2 = new QCheckBox(layoutWidget1);
         macroRepeat_2->setObjectName(QStringLiteral("macroRepeat_2"));
 
         horizontalLayout_4->addWidget(macroRepeat_2);
 
 
         verticalLayout->addLayout(horizontalLayout_4);
+
+
+        verticalLayout_2->addLayout(verticalLayout);
+
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
+        macroEdit_3 = new QLineEdit(layoutWidget1);
+        macroEdit_3->setObjectName(QStringLiteral("macroEdit_3"));
+
+        horizontalLayout_5->addWidget(macroEdit_3);
+
+        macroName_3 = new QLineEdit(layoutWidget1);
+        macroName_3->setObjectName(QStringLiteral("macroName_3"));
+
+        horizontalLayout_5->addWidget(macroName_3);
+
+        macroRepeatTime_3 = new QLineEdit(layoutWidget1);
+        macroRepeatTime_3->setObjectName(QStringLiteral("macroRepeatTime_3"));
+
+        horizontalLayout_5->addWidget(macroRepeatTime_3);
+
+        macroRepeat_3 = new QCheckBox(layoutWidget1);
+        macroRepeat_3->setObjectName(QStringLiteral("macroRepeat_3"));
+
+        horizontalLayout_5->addWidget(macroRepeat_3);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_5);
+
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
+        macroEdit_4 = new QLineEdit(layoutWidget1);
+        macroEdit_4->setObjectName(QStringLiteral("macroEdit_4"));
+
+        horizontalLayout_6->addWidget(macroEdit_4);
+
+        macroName_4 = new QLineEdit(layoutWidget1);
+        macroName_4->setObjectName(QStringLiteral("macroName_4"));
+
+        horizontalLayout_6->addWidget(macroName_4);
+
+        macroRepeatTime_4 = new QLineEdit(layoutWidget1);
+        macroRepeatTime_4->setObjectName(QStringLiteral("macroRepeatTime_4"));
+
+        horizontalLayout_6->addWidget(macroRepeatTime_4);
+
+        macroRepeat_4 = new QCheckBox(layoutWidget1);
+        macroRepeat_4->setObjectName(QStringLiteral("macroRepeat_4"));
+
+        horizontalLayout_6->addWidget(macroRepeat_4);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_6);
 
 
         retranslateUi(MacroDialog);
@@ -627,13 +681,17 @@ public:
         safeMacroButton->setText(QApplication::translate("MacroDialog", "Safe", 0));
         groupBox_2->setTitle(QApplication::translate("MacroDialog", "Transmit", 0));
         macroName_1->setText(QApplication::translate("MacroDialog", "M1", 0));
-        macroButton_1->setText(QApplication::translate("MacroDialog", "M1", 0));
         macroRepeatTime_1->setText(QApplication::translate("MacroDialog", "1000", 0));
         macroRepeat_1->setText(QString());
         macroName_2->setText(QApplication::translate("MacroDialog", "M2", 0));
-        macroButton_2->setText(QApplication::translate("MacroDialog", "M1", 0));
         macroRepeatTime_2->setText(QApplication::translate("MacroDialog", "1000", 0));
         macroRepeat_2->setText(QString());
+        macroName_3->setText(QApplication::translate("MacroDialog", "M1", 0));
+        macroRepeatTime_3->setText(QApplication::translate("MacroDialog", "1000", 0));
+        macroRepeat_3->setText(QString());
+        macroName_4->setText(QApplication::translate("MacroDialog", "M2", 0));
+        macroRepeatTime_4->setText(QApplication::translate("MacroDialog", "1000", 0));
+        macroRepeat_4->setText(QString());
     } // retranslateUi
 
 };

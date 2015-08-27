@@ -668,14 +668,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
         <item>
          <widget class="QCheckBox" name="checkBox_4">
           <property name="text">
-           <string>CheckBox</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QCheckBox" name="checkBox">
-          <property name="text">
-           <string>CheckBox</string>
+           <string>RTS</string>
           </property>
          </widget>
         </item>

@@ -68,7 +68,6 @@ public:
     QVBoxLayout *verticalLayout_5;
     QCheckBox *checkBoxDTR;
     QCheckBox *checkBox_4;
-    QCheckBox *checkBox;
     QWidget *layoutWidget2;
     QHBoxLayout *horizontalLayout_7;
     QPushButton *connectButton;
@@ -719,11 +718,6 @@ public:
 
         verticalLayout_5->addWidget(checkBox_4);
 
-        checkBox = new QCheckBox(layoutWidget1);
-        checkBox->setObjectName(QStringLiteral("checkBox"));
-
-        verticalLayout_5->addWidget(checkBox);
-
 
         horizontalLayout_8->addLayout(verticalLayout_5);
 
@@ -885,8 +879,7 @@ public:
         checkBoxLF->setText(QApplication::translate("MainWindow", "LF", 0));
         checkBoxCRLF->setText(QApplication::translate("MainWindow", "CR + LF", 0));
         checkBoxDTR->setText(QApplication::translate("MainWindow", "DTR", 0));
-        checkBox_4->setText(QApplication::translate("MainWindow", "CheckBox", 0));
-        checkBox->setText(QApplication::translate("MainWindow", "CheckBox", 0));
+        checkBox_4->setText(QApplication::translate("MainWindow", "RTS", 0));
         connectButton->setText(QApplication::translate("MainWindow", "Connect", 0));
         disconnectButton->setText(QApplication::translate("MainWindow", "Disconnect", 0));
         settingsButton->setText(QApplication::translate("MainWindow", "Configure", 0));

@@ -6,6 +6,7 @@ SerialConnector::SerialConnector(MainWindow *mWindow) : myMainWindow(mWindow)
     qDebug() << "SerialConnector->Constructor";
     m_serial = new QSerialPort();
     m_settings = new SettingsDialog;
+   // m_macro = new MacroDialog();
 
     m_autoScroll = false;
     m_CR = false;
@@ -28,6 +29,7 @@ SerialConnector::SerialConnector(MainWindow *mWindow) : myMainWindow(mWindow)
 
     connect(myMainWindow->actionConfigure, SIGNAL(triggered()), m_settings, SLOT(show()));
 
+    connect(myMainWindow->m1Button, SIGNAL(clicked()), this, SLOT(SendMacroM1()));
 }
 
 SerialConnector::~SerialConnector()
@@ -222,5 +224,10 @@ void SerialConnector::WriteToSerial(QString data)
         qDebug() << "Empty String" << endl;
 }
 
+void SerialConnector::SendMacroM1()
+{
+    //MacroDialog::macroEdited_1();
 
+    qDebug() << "SendM1" << MacroDialog::test;
+}
 

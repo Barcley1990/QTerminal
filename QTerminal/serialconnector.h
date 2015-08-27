@@ -10,12 +10,13 @@
 
 #include "mainwindow.h"
 #include "settingsdialog.h"
+#include "macrodialog.h"
 
 
 class MainWindow;
 
 
-class SerialConnector : public QWidget
+class SerialConnector : public MacroDialog
 {
     Q_OBJECT
 
@@ -24,8 +25,6 @@ MainWindow *myMainWindow;
 public:
     SerialConnector(MainWindow*);
     ~SerialConnector();
-
-
 
     void WriteToSerial(QString);
 
@@ -48,15 +47,19 @@ public slots:
     void getDataFromInputBox();
     void ReadFromSerial();
 
+    void SendMacroM1();
+
 private:
     QSerialPort *m_serial;
     SettingsDialog *m_settings;
+    MacroDialog *m_macro;
 
     bool m_CR;
     bool m_LF;
     bool m_CRLF;
     int m_DTR;
     bool m_autoScroll;
+
 };
 
 #endif // SERIALCONNECTOR_H

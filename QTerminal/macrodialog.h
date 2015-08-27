@@ -15,10 +15,13 @@ class MacroDialog : public QDialog
 public:
     struct Macros {
         QString name, value, repeatTime;
-    };
+    }m1;
+    QString test;
 
     explicit MacroDialog(QWidget *parent = 0);
     ~MacroDialog();
+
+
 
 public slots:
     void macroEdited_1();

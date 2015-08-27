@@ -7,32 +7,29 @@ QT_USE_NAMESPACE
 class MainWindow;
 static const char blankString[] = QT_TRANSLATE_NOOP("Macro Settings", "N/A");
 
-MacroDialog::MacroDialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::MacroDialog)
+MacroDialog::MacroDialog(QWidget *parent) : QDialog(parent), ui(new Ui::MacroDialog)
 {
+    qDebug() << "MacroDialog -> Constructor";
     ui->setupUi(this);
 
-    connect(ui->macroEdit_1, SIGNAL(textEdited(QString)), this, SLOT(macroEdited_1()));
+    //connect(ui->macroEdit_1, SIGNAL(textEdited(QString)), this, SLOT(macroEdited_1()));
     connect(ui->macroName_1, SIGNAL(textEdited(QString)), this, SLOT(macroEdited_1()));
     connect(ui->macroName_1, SIGNAL(textEdited(QString)), parent, SLOT(updateMacroButtons(QString)));
-    connect(ui->macroRepeatTime_1, SIGNAL(textEdited(QString)), this, SLOT(macroEdited_1()));
+    //connect(ui->macroRepeatTime_1, SIGNAL(textEdited(QString)), this, SLOT(macroEdited_1()));
+
+    macroEdited_1();
+    test="Hallo";
 }
 
 MacroDialog::~MacroDialog()
 {
+    qDebug() << "MacroDialog -> Destructor";
     delete ui;
 }
 
 void MacroDialog::macroEdited_1()
 {
-    MacroDialog::Macros m1;
-    m1.name = ui->macroName_1->text();
-    m1.repeatTime = ui->macroRepeatTime_1->text();
-    m1.value = ui->macroEdit_1->text();
-    qDebug() << m1.name;
-    qDebug() << m1.value;
-    qDebug() << m1.repeatTime;
-
-
+    test = ui->macroName_1->text();
+    qDebug() << "in macroedidet" << ui->macroName_1->text();
+    qDebug() << "in macroedidet" <<  test;
 }
