@@ -31,7 +31,7 @@ public slots:
 
 private:
     //Ui::MainWindow *ui;
-    SerialConnector *m_serial;
+    SerialConnector *m_com;
     MacroDialog *m_macros;
 
 };

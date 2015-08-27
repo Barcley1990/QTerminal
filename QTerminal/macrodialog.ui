@@ -604,7 +604,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
        <item>
         <widget class="QLineEdit" name="macroName_3">
          <property name="text">
-          <string>M1</string>
+          <string>M3</string>
          </property>
         </widget>
        </item>
@@ -632,7 +632,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
        <item>
         <widget class="QLineEdit" name="macroName_4">
          <property name="text">
-          <string>M2</string>
+          <string>M4</string>
          </property>
         </widget>
        </item>

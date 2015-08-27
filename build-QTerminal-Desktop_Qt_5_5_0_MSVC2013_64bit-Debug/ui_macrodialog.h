@@ -686,10 +686,10 @@ public:
         macroName_2->setText(QApplication::translate("MacroDialog", "M2", 0));
         macroRepeatTime_2->setText(QApplication::translate("MacroDialog", "1000", 0));
         macroRepeat_2->setText(QString());
-        macroName_3->setText(QApplication::translate("MacroDialog", "M1", 0));
+        macroName_3->setText(QApplication::translate("MacroDialog", "M3", 0));
         macroRepeatTime_3->setText(QApplication::translate("MacroDialog", "1000", 0));
         macroRepeat_3->setText(QString());
-        macroName_4->setText(QApplication::translate("MacroDialog", "M2", 0));
+        macroName_4->setText(QApplication::translate("MacroDialog", "M4", 0));
         macroRepeatTime_4->setText(QApplication::translate("MacroDialog", "1000", 0));
         macroRepeat_4->setText(QString());
     } // retranslateUi

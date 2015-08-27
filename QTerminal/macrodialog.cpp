@@ -17,7 +17,7 @@ MacroDialog::MacroDialog(QWidget *parent) : QDialog(parent), ui(new Ui::MacroDia
     connect(ui->macroName_1, SIGNAL(textEdited(QString)), parent, SLOT(updateMacroButtons(QString)));
     //connect(ui->macroRepeatTime_1, SIGNAL(textEdited(QString)), this, SLOT(macroEdited_1()));
 
-    macroEdited_1();
+   // macroEdited_1();
     test="Hallo";
 }
 

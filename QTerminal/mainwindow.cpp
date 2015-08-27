@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
     qDebug() << "MainWindow -> Constructor";
     setupUi(this);
-    m_serial = new SerialConnector(this);
+    m_com = new SerialConnector(this);
     m_macros = new MacroDialog(this);
 
     /* show Macro Dialog */
@@ -25,7 +25,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 MainWindow::~MainWindow()
 {
     qDebug() << "MainWindow -> Destructor";
-    delete m_serial;
+    delete m_com;
     delete m_macros;
 }
 
@@ -33,8 +33,8 @@ MainWindow::~MainWindow()
 void MainWindow::initActionsConnections()
 {
     connect(actionSet_Makros, SIGNAL(triggered()), m_macros, SLOT(show()));
-    connect(actionConnect, SIGNAL(triggered()), m_serial, SLOT(openSerialPort()));
-    connect(actionDisconnect, SIGNAL(triggered()), m_serial, SLOT(closeSerialPort()));
+    connect(actionConnect, SIGNAL(triggered()), m_com, SLOT(openSerialPort()));
+    connect(actionDisconnect, SIGNAL(triggered()), m_com, SLOT(closeSerialPort()));
     connect(actionQuit, SIGNAL(triggered()), this, SLOT(close()));
     //connect(actionConfigure, SIGNAL(triggered()), settings, SLOT(show()));
    // connect(actionAbout, SIGNAL(triggered()), m_serial, SLOT(about()));
