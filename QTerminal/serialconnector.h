@@ -16,7 +16,7 @@
 class MainWindow;
 
 
-class SerialConnector : public MacroDialog
+class SerialConnector : public QDialog
 {
     Q_OBJECT
 
@@ -47,12 +47,9 @@ public slots:
     void getDataFromInputBox();
     void ReadFromSerial();
 
-    void SendMacroM1();
-
 private:
     QSerialPort *m_serial;
     SettingsDialog *m_settings;
-    MacroDialog *m_macro;
 
     bool m_CR;
     bool m_LF;

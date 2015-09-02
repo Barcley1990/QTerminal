@@ -14,10 +14,10 @@ CXX           = cl
 DEFINES       = -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_CORE_LIB -DNDEBUG
 CFLAGS        = -nologo -Zc:wchar_t -FS -O2 -MD -Zc:strictStrings -W3 $(DEFINES)
 CXXFLAGS      = -nologo -Zc:wchar_t -FS -O2 -MD -Zc:strictStrings -GR -W3 -w34100 -w34189 -w44996 -EHsc $(DEFINES)
-INCPATH       = -I..\QTerminal -I. -IC:\Qt\5.5\msvc2013_64\include -IC:\Qt\5.5\msvc2013_64\include\QtWidgets -IC:\Qt\5.5\msvc2013_64\include\QtGui -IC:\Qt\5.5\msvc2013_64\include\QtANGLE -IC:\Qt\5.5\msvc2013_64\include\QtSerialPort -IC:\Qt\5.5\msvc2013_64\include\QtCore -Irelease -I. -IC:\Qt\5.5\msvc2013_64\mkspecs\win32-msvc2013 
+INCPATH       = -I..\QTerminal -I. -IC:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include -IINCLUDEPATH -I+= -IC:\AlliedVisionTechnologies\AVTVimba_1.3 -ILIBS -I+= -IC:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaC\Lib\Win64 -ILIBS -I+= -IC:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Lib\Win64 -IC:\opencv\build\include -ILIBS -I+= -IC:\opencv\build\x64\vc12\bin\*.dll -IC:\Qt\5.5\msvc2013_64\include -IC:\Qt\5.5\msvc2013_64\include\QtWidgets -IC:\Qt\5.5\msvc2013_64\include\QtGui -IC:\Qt\5.5\msvc2013_64\include\QtANGLE -IC:\Qt\5.5\msvc2013_64\include\QtSerialPort -IC:\Qt\5.5\msvc2013_64\include\QtCore -Irelease -I. -IC:\Qt\5.5\msvc2013_64\mkspecs\win32-msvc2013 
 LINKER        = link
 LFLAGS        = /NOLOGO /DYNAMICBASE /NXCOMPAT /INCREMENTAL:NO /SUBSYSTEM:WINDOWS "/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'"
-LIBS          = /LIBPATH:C:\Qt\5.5\msvc2013_64\lib C:\Qt\5.5\msvc2013_64\lib\qtmain.lib shell32.lib /LIBPATH:C:\Qt\5.5\msvc2013_64\lib C:\Qt\5.5\msvc2013_64\lib\Qt5Core.lib C:\Qt\5.5\msvc2013_64\lib\Qt5Widgets.lib C:\Qt\5.5\msvc2013_64\lib\Qt5Gui.lib C:\Qt\5.5\msvc2013_64\lib\Qt5SerialPort.lib C:\Qt\5.5\msvc2013_64\lib\Qt5Core.lib 
+LIBS          = /LIBPATH:C:\Qt\5.5\msvc2013_64\lib C:\Qt\5.5\msvc2013_64\lib\qtmain.lib shell32.lib /LIBPATH:C:\Qt\5.5\msvc2013_64\lib C:\Qt\5.5\msvc2013_64\lib\Qt5Core.lib C:\opencv\build\x64\vc12\lib\*.lib C:\Qt\5.5\msvc2013_64\lib\Qt5Widgets.lib C:\Qt\5.5\msvc2013_64\lib\Qt5Gui.lib C:\Qt\5.5\msvc2013_64\lib\Qt5SerialPort.lib C:\Qt\5.5\msvc2013_64\lib\Qt5Core.lib 
 QMAKE         = C:\Qt\5.5\msvc2013_64\bin\qmake.exe
 IDC           = idc
 IDL           = midl
@@ -47,28 +47,34 @@ SOURCES       = ..\QTerminal\main.cpp \
 		..\QTerminal\mainwindow.cpp \
 		..\QTerminal\serialconnector.cpp \
 		..\QTerminal\settingsdialog.cpp \
-		..\QTerminal\macrodialog.cpp release\moc_mainwindow.cpp \
+		..\QTerminal\macrodialog.cpp \
+		..\QTerminal\cameraconnector.cpp release\moc_mainwindow.cpp \
 		release\moc_serialconnector.cpp \
 		release\moc_settingsdialog.cpp \
-		release\moc_macrodialog.cpp
+		release\moc_macrodialog.cpp \
+		release\moc_cameraconnector.cpp
 OBJECTS       = release\main.obj \
 		release\mainwindow.obj \
 		release\serialconnector.obj \
 		release\settingsdialog.obj \
 		release\macrodialog.obj \
+		release\cameraconnector.obj \
 		release\moc_mainwindow.obj \
 		release\moc_serialconnector.obj \
 		release\moc_settingsdialog.obj \
-		release\moc_macrodialog.obj
+		release\moc_macrodialog.obj \
+		release\moc_cameraconnector.obj
 
 DIST          =  ..\QTerminal\mainwindow.h \
 		..\QTerminal\serialconnector.h \
 		..\QTerminal\settingsdialog.h \
-		..\QTerminal\macrodialog.h ..\QTerminal\main.cpp \
+		..\QTerminal\macrodialog.h \
+		..\QTerminal\cameraconnector.h ..\QTerminal\main.cpp \
 		..\QTerminal\mainwindow.cpp \
 		..\QTerminal\serialconnector.cpp \
 		..\QTerminal\settingsdialog.cpp \
-		..\QTerminal\macrodialog.cpp
+		..\QTerminal\macrodialog.cpp \
+		..\QTerminal\cameraconnector.cpp
 QMAKE_TARGET  = QTerminal
 DESTDIR        = release\ #avoid trailing-slash linebreak
 TARGET         = QTerminal.exe
@@ -157,7 +163,7 @@ dist:
 	$(ZIP) QTerminal.zip $(SOURCES) $(DIST) ..\QTerminal\QTerminal.pro C:\Qt\5.5\msvc2013_64\mkspecs\features\spec_pre.prf C:\Qt\5.5\msvc2013_64\mkspecs\common\msvc-desktop.conf C:\Qt\5.5\msvc2013_64\mkspecs\qconfig.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_3dcore.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_3dcore_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_3dinput.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_3dinput_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_3dquick.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_3dquick_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_3dquickrenderer.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_3dquickrenderer_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_3drenderer.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_3drenderer_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_axbase.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_axserver.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_clucene_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_core.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_core_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_dbus.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_declarative.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_declarative_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_designer.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_enginio.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_enginio_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_gui.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_help.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_help_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_location.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_location_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_network.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_network_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_nfc.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_opengl.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_platformsupport_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_positioning.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_qml.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_quick.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_script.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_script_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_scripttools.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_scripttools_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_sensors.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_serialport.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_sql.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_svg.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_testlib.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_uitools.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_webchannel.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_webchannel_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_webengine.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_webengine_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_webenginecore.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_webenginecore_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_webenginewidgets.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_webenginewidgets_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_webkit.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_webkit_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_webkitwidgets.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_webkitwidgets_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_websockets.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_websockets_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_webview_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_widgets.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_winextras.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_xml.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\5.5\msvc2013_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\5.5\msvc2013_64\mkspecs\features\qt_functions.prf C:\Qt\5.5\msvc2013_64\mkspecs\features\qt_config.prf C:\Qt\5.5\msvc2013_64\mkspecs\features\win32\qt_config.prf C:\Qt\5.5\msvc2013_64\mkspecs\win32-msvc2013\qmake.conf C:\Qt\5.5\msvc2013_64\mkspecs\features\spec_post.prf C:\Qt\5.5\msvc2013_64\mkspecs\features\exclusive_builds.prf C:\Qt\5.5\msvc2013_64\mkspecs\features\default_pre.prf C:\Qt\5.5\msvc2013_64\mkspecs\features\win32\default_pre.prf C:\Qt\5.5\msvc2013_64\mkspecs\features\resolve_config.prf C:\Qt\5.5\msvc2013_64\mkspecs\features\exclusive_builds_post.prf C:\Qt\5.5\msvc2013_64\mkspecs\features\default_post.prf C:\Qt\5.5\msvc2013_64\mkspecs\features\build_pass.prf C:\Qt\5.5\msvc2013_64\mkspecs\features\win32\rtti.prf C:\Qt\5.5\msvc2013_64\mkspecs\features\c++11.prf C:\Qt\5.5\msvc2013_64\mkspecs\features\precompile_header.prf C:\Qt\5.5\msvc2013_64\mkspecs\features\warn_on.prf C:\Qt\5.5\msvc2013_64\mkspecs\features\qt.prf C:\Qt\5.5\msvc2013_64\mkspecs\features\resources.prf C:\Qt\5.5\msvc2013_64\mkspecs\features\moc.prf C:\Qt\5.5\msvc2013_64\mkspecs\features\win32\opengl.prf C:\Qt\5.5\msvc2013_64\mkspecs\features\uic.prf C:\Qt\5.5\msvc2013_64\mkspecs\features\win32\windows.prf C:\Qt\5.5\msvc2013_64\mkspecs\features\testcase_targets.prf C:\Qt\5.5\msvc2013_64\mkspecs\features\exceptions.prf C:\Qt\5.5\msvc2013_64\mkspecs\features\yacc.prf C:\Qt\5.5\msvc2013_64\mkspecs\features\lex.prf ..\QTerminal\QTerminal.pro C:/Qt/5.5/msvc2013_64/lib/qtmain.prl C:/Qt/5.5/msvc2013_64/lib/Qt5Widgets.prl C:/Qt/5.5/msvc2013_64/lib/Qt5Gui.prl C:/Qt/5.5/msvc2013_64/lib/Qt5SerialPort.prl C:/Qt/5.5/msvc2013_64/lib/Qt5Core.prl  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
-	-$(DEL_FILE) release\main.obj release\mainwindow.obj release\serialconnector.obj release\settingsdialog.obj release\macrodialog.obj release\moc_mainwindow.obj release\moc_serialconnector.obj release\moc_settingsdialog.obj release\moc_macrodialog.obj
+	-$(DEL_FILE) release\main.obj release\mainwindow.obj release\serialconnector.obj release\settingsdialog.obj release\macrodialog.obj release\cameraconnector.obj release\moc_mainwindow.obj release\moc_serialconnector.obj release\moc_settingsdialog.obj release\moc_macrodialog.obj release\moc_cameraconnector.obj
 	-$(DEL_FILE) release\QTerminal.exp
 
 distclean: clean 
@@ -175,9 +181,9 @@ compiler_no_pch_compiler_make_all:
 compiler_no_pch_compiler_clean:
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: release\moc_mainwindow.cpp release\moc_serialconnector.cpp release\moc_settingsdialog.cpp release\moc_macrodialog.cpp
+compiler_moc_header_make_all: release\moc_mainwindow.cpp release\moc_serialconnector.cpp release\moc_settingsdialog.cpp release\moc_macrodialog.cpp release\moc_cameraconnector.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) release\moc_mainwindow.cpp release\moc_serialconnector.cpp release\moc_settingsdialog.cpp release\moc_macrodialog.cpp
+	-$(DEL_FILE) release\moc_mainwindow.cpp release\moc_serialconnector.cpp release\moc_settingsdialog.cpp release\moc_macrodialog.cpp release\moc_cameraconnector.cpp
 release\moc_mainwindow.cpp: C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMainWindow \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qmainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qwidget.h \
@@ -400,6 +406,34 @@ release\moc_mainwindow.cpp: C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMainWindow 
 		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\qtserialportversion.h \
 		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\QSerialPortInfo \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QIODevice \
+		C:\opencv\build\include\opencv2\opencv.hpp \
+		C:\opencv\build\include\opencv2\core\core_c.h \
+		C:\opencv\build\include\opencv2\core\types_c.h \
+		C:\opencv\build\include\opencv2\core\core.hpp \
+		C:\opencv\build\include\opencv2\core\version.hpp \
+		C:\opencv\build\include\opencv2\core\operations.hpp \
+		C:\opencv\build\include\opencv2\core\mat.hpp \
+		C:\opencv\build\include\opencv2\flann\miniflann.hpp \
+		C:\opencv\build\include\opencv2\flann\defines.h \
+		C:\opencv\build\include\opencv2\flann\config.h \
+		C:\opencv\build\include\opencv2\imgproc\imgproc_c.h \
+		C:\opencv\build\include\opencv2\imgproc\types_c.h \
+		C:\opencv\build\include\opencv2\imgproc\imgproc.hpp \
+		C:\opencv\build\include\opencv2\photo\photo.hpp \
+		C:\opencv\build\include\opencv2\photo\photo_c.h \
+		C:\opencv\build\include\opencv2\video\video.hpp \
+		C:\opencv\build\include\opencv2\video\tracking.hpp \
+		C:\opencv\build\include\opencv2\video\background_segm.hpp \
+		C:\opencv\build\include\opencv2\features2d\features2d.hpp \
+		C:\opencv\build\include\opencv2\objdetect\objdetect.hpp \
+		C:\opencv\build\include\opencv2\calib3d\calib3d.hpp \
+		C:\opencv\build\include\opencv2\core\affine.hpp \
+		C:\opencv\build\include\opencv2\ml\ml.hpp \
+		C:\opencv\build\include\opencv2\highgui\highgui_c.h \
+		C:\opencv\build\include\opencv2\highgui\highgui.hpp \
+		C:\opencv\build\include\opencv2\contrib\contrib.hpp \
+		C:\opencv\build\include\opencv2\contrib\retina.hpp \
+		C:\opencv\build\include\opencv2\contrib\openfabmap.hpp \
 		..\QTerminal\serialconnector.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QThread \
@@ -422,9 +456,19 @@ release\moc_mainwindow.cpp: C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMainWindow 
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QCheckBox \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcheckbox.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QComboBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcombobox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
@@ -434,14 +478,6 @@ release\moc_mainwindow.cpp: C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMainWindow 
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
-		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
@@ -467,10 +503,43 @@ release\moc_mainwindow.cpp: C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMainWindow 
 		..\QTerminal\macrodialog.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialog \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialog.h \
+		..\QTerminal\cameraconnector.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Camera.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaC\Include\VimbaC.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaC\Include\VmbCommonTypes.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaCPPCommon.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IRegisterDevice.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FeatureContainer.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\BasicLockable.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointer.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Mutex.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointer_impl.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\UserSharedPointerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Feature.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IFeatureObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\EnumEntry.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\EnumEntry.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Feature.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FeatureContainer.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Frame.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IFrameObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\AncillaryData.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Camera.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\ICameraListObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaSystem.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\LoggerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\UserLoggerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FileLogger.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Interface.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Interface.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\ICameraFactory.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IInterfaceListObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaSystem.hpp \
 		..\QTerminal\settingsdialog.h \
 		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\QSerialPort \
 		..\QTerminal\mainwindow.h
-	C:\Qt\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.5/msvc2013_64/mkspecs/win32-msvc2013 -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal -IC:/Qt/5.5/msvc2013_64/include -IC:/Qt/5.5/msvc2013_64/include/QtWidgets -IC:/Qt/5.5/msvc2013_64/include/QtGui -IC:/Qt/5.5/msvc2013_64/include/QtANGLE -IC:/Qt/5.5/msvc2013_64/include/QtSerialPort -IC:/Qt/5.5/msvc2013_64/include/QtCore -I. ..\QTerminal\mainwindow.h -o release\moc_mainwindow.cpp
+	C:\Qt\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.5/msvc2013_64/mkspecs/win32-msvc2013 -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal -IC:/AlliedVisionTechnologies/AVTVimba_1.3/VimbaCPP/Include -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/INCLUDEPATH -I"C:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/+=" -IC:/AlliedVisionTechnologies/AVTVimba_1.3 -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/LIBS -I"C:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/+=" -IC:/AlliedVisionTechnologies/AVTVimba_1.3/VimbaC/Lib/Win64 -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/LIBS -I"C:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/+=" -IC:/AlliedVisionTechnologies/AVTVimba_1.3/VimbaCPP/Lib/Win64 -IC:/opencv/build/include -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/LIBS -I"C:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/+=" -IC:/opencv/build/x64/vc12/bin/*.dll -IC:/Qt/5.5/msvc2013_64/include -IC:/Qt/5.5/msvc2013_64/include/QtWidgets -IC:/Qt/5.5/msvc2013_64/include/QtGui -IC:/Qt/5.5/msvc2013_64/include/QtANGLE -IC:/Qt/5.5/msvc2013_64/include/QtSerialPort -IC:/Qt/5.5/msvc2013_64/include/QtCore -I. ..\QTerminal\mainwindow.h -o release\moc_mainwindow.cpp
 
 release\moc_serialconnector.cpp: C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMainWindow \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qmainwindow.h \
@@ -700,11 +769,40 @@ release\moc_serialconnector.cpp: C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMainWi
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
 		..\QTerminal\mainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QIODevice \
+		C:\opencv\build\include\opencv2\opencv.hpp \
+		C:\opencv\build\include\opencv2\core\core_c.h \
+		C:\opencv\build\include\opencv2\core\types_c.h \
+		C:\opencv\build\include\opencv2\core\core.hpp \
+		C:\opencv\build\include\opencv2\core\version.hpp \
+		C:\opencv\build\include\opencv2\core\operations.hpp \
+		C:\opencv\build\include\opencv2\core\mat.hpp \
+		C:\opencv\build\include\opencv2\flann\miniflann.hpp \
+		C:\opencv\build\include\opencv2\flann\defines.h \
+		C:\opencv\build\include\opencv2\flann\config.h \
+		C:\opencv\build\include\opencv2\imgproc\imgproc_c.h \
+		C:\opencv\build\include\opencv2\imgproc\types_c.h \
+		C:\opencv\build\include\opencv2\imgproc\imgproc.hpp \
+		C:\opencv\build\include\opencv2\photo\photo.hpp \
+		C:\opencv\build\include\opencv2\photo\photo_c.h \
+		C:\opencv\build\include\opencv2\video\video.hpp \
+		C:\opencv\build\include\opencv2\video\tracking.hpp \
+		C:\opencv\build\include\opencv2\video\background_segm.hpp \
+		C:\opencv\build\include\opencv2\features2d\features2d.hpp \
+		C:\opencv\build\include\opencv2\objdetect\objdetect.hpp \
+		C:\opencv\build\include\opencv2\calib3d\calib3d.hpp \
+		C:\opencv\build\include\opencv2\core\affine.hpp \
+		C:\opencv\build\include\opencv2\ml\ml.hpp \
+		C:\opencv\build\include\opencv2\highgui\highgui_c.h \
+		C:\opencv\build\include\opencv2\highgui\highgui.hpp \
+		C:\opencv\build\include\opencv2\contrib\contrib.hpp \
+		C:\opencv\build\include\opencv2\contrib\retina.hpp \
+		C:\opencv\build\include\opencv2\contrib\openfabmap.hpp \
 		..\QTerminal\serialconnector.h \
 		..\QTerminal\settingsdialog.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialog \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialog.h \
 		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\QSerialPort \
+		..\QTerminal\macrodialog.h \
 		ui_mainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
@@ -720,9 +818,19 @@ release\moc_serialconnector.cpp: C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMainWi
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QCheckBox \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcheckbox.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QComboBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcombobox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
@@ -732,14 +840,6 @@ release\moc_serialconnector.cpp: C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMainWi
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
-		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
@@ -762,9 +862,41 @@ release\moc_serialconnector.cpp: C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMainWi
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtextedit.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextdocument.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
-		..\QTerminal\macrodialog.h \
+		..\QTerminal\cameraconnector.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Camera.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaC\Include\VimbaC.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaC\Include\VmbCommonTypes.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaCPPCommon.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IRegisterDevice.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FeatureContainer.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\BasicLockable.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointer.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Mutex.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointer_impl.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\UserSharedPointerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Feature.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IFeatureObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\EnumEntry.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\EnumEntry.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Feature.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FeatureContainer.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Frame.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IFrameObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\AncillaryData.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Camera.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\ICameraListObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaSystem.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\LoggerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\UserLoggerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FileLogger.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Interface.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Interface.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\ICameraFactory.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IInterfaceListObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaSystem.hpp \
 		..\QTerminal\serialconnector.h
-	C:\Qt\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.5/msvc2013_64/mkspecs/win32-msvc2013 -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal -IC:/Qt/5.5/msvc2013_64/include -IC:/Qt/5.5/msvc2013_64/include/QtWidgets -IC:/Qt/5.5/msvc2013_64/include/QtGui -IC:/Qt/5.5/msvc2013_64/include/QtANGLE -IC:/Qt/5.5/msvc2013_64/include/QtSerialPort -IC:/Qt/5.5/msvc2013_64/include/QtCore -I. ..\QTerminal\serialconnector.h -o release\moc_serialconnector.cpp
+	C:\Qt\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.5/msvc2013_64/mkspecs/win32-msvc2013 -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal -IC:/AlliedVisionTechnologies/AVTVimba_1.3/VimbaCPP/Include -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/INCLUDEPATH -I"C:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/+=" -IC:/AlliedVisionTechnologies/AVTVimba_1.3 -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/LIBS -I"C:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/+=" -IC:/AlliedVisionTechnologies/AVTVimba_1.3/VimbaC/Lib/Win64 -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/LIBS -I"C:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/+=" -IC:/AlliedVisionTechnologies/AVTVimba_1.3/VimbaCPP/Lib/Win64 -IC:/opencv/build/include -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/LIBS -I"C:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/+=" -IC:/opencv/build/x64/vc12/bin/*.dll -IC:/Qt/5.5/msvc2013_64/include -IC:/Qt/5.5/msvc2013_64/include/QtWidgets -IC:/Qt/5.5/msvc2013_64/include/QtGui -IC:/Qt/5.5/msvc2013_64/include/QtANGLE -IC:/Qt/5.5/msvc2013_64/include/QtSerialPort -IC:/Qt/5.5/msvc2013_64/include/QtCore -I. ..\QTerminal\serialconnector.h -o release\moc_serialconnector.cpp
 
 release\moc_settingsdialog.cpp: C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialog \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialog.h \
@@ -873,7 +1005,7 @@ release\moc_settingsdialog.cpp: C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialog 
 		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\qserialport.h \
 		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\qserialportglobal.h \
 		..\QTerminal\settingsdialog.h
-	C:\Qt\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.5/msvc2013_64/mkspecs/win32-msvc2013 -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal -IC:/Qt/5.5/msvc2013_64/include -IC:/Qt/5.5/msvc2013_64/include/QtWidgets -IC:/Qt/5.5/msvc2013_64/include/QtGui -IC:/Qt/5.5/msvc2013_64/include/QtANGLE -IC:/Qt/5.5/msvc2013_64/include/QtSerialPort -IC:/Qt/5.5/msvc2013_64/include/QtCore -I. ..\QTerminal\settingsdialog.h -o release\moc_settingsdialog.cpp
+	C:\Qt\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.5/msvc2013_64/mkspecs/win32-msvc2013 -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal -IC:/AlliedVisionTechnologies/AVTVimba_1.3/VimbaCPP/Include -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/INCLUDEPATH -I"C:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/+=" -IC:/AlliedVisionTechnologies/AVTVimba_1.3 -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/LIBS -I"C:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/+=" -IC:/AlliedVisionTechnologies/AVTVimba_1.3/VimbaC/Lib/Win64 -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/LIBS -I"C:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/+=" -IC:/AlliedVisionTechnologies/AVTVimba_1.3/VimbaCPP/Lib/Win64 -IC:/opencv/build/include -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/LIBS -I"C:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/+=" -IC:/opencv/build/x64/vc12/bin/*.dll -IC:/Qt/5.5/msvc2013_64/include -IC:/Qt/5.5/msvc2013_64/include/QtWidgets -IC:/Qt/5.5/msvc2013_64/include/QtGui -IC:/Qt/5.5/msvc2013_64/include/QtANGLE -IC:/Qt/5.5/msvc2013_64/include/QtSerialPort -IC:/Qt/5.5/msvc2013_64/include/QtCore -I. ..\QTerminal\settingsdialog.h -o release\moc_settingsdialog.cpp
 
 release\moc_macrodialog.cpp: C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialog \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialog.h \
@@ -979,7 +1111,95 @@ release\moc_macrodialog.cpp: C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialog \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\QTerminal\macrodialog.h
-	C:\Qt\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.5/msvc2013_64/mkspecs/win32-msvc2013 -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal -IC:/Qt/5.5/msvc2013_64/include -IC:/Qt/5.5/msvc2013_64/include/QtWidgets -IC:/Qt/5.5/msvc2013_64/include/QtGui -IC:/Qt/5.5/msvc2013_64/include/QtANGLE -IC:/Qt/5.5/msvc2013_64/include/QtSerialPort -IC:/Qt/5.5/msvc2013_64/include/QtCore -I. ..\QTerminal\macrodialog.h -o release\moc_macrodialog.cpp
+	C:\Qt\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.5/msvc2013_64/mkspecs/win32-msvc2013 -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal -IC:/AlliedVisionTechnologies/AVTVimba_1.3/VimbaCPP/Include -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/INCLUDEPATH -I"C:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/+=" -IC:/AlliedVisionTechnologies/AVTVimba_1.3 -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/LIBS -I"C:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/+=" -IC:/AlliedVisionTechnologies/AVTVimba_1.3/VimbaC/Lib/Win64 -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/LIBS -I"C:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/+=" -IC:/AlliedVisionTechnologies/AVTVimba_1.3/VimbaCPP/Lib/Win64 -IC:/opencv/build/include -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/LIBS -I"C:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/+=" -IC:/opencv/build/x64/vc12/bin/*.dll -IC:/Qt/5.5/msvc2013_64/include -IC:/Qt/5.5/msvc2013_64/include/QtWidgets -IC:/Qt/5.5/msvc2013_64/include/QtGui -IC:/Qt/5.5/msvc2013_64/include/QtANGLE -IC:/Qt/5.5/msvc2013_64/include/QtSerialPort -IC:/Qt/5.5/msvc2013_64/include/QtCore -I. ..\QTerminal\macrodialog.h -o release\moc_macrodialog.cpp
+
+release\moc_cameraconnector.cpp: C:\Qt\5.5\msvc2013_64\include\QtCore\QObject \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qobject.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qnamespace.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qglobal.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qconfig.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qfeatures.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qtypetraits.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qsysinfo.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qlogging.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qflags.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic_gcc.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic_armv7.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic_armv6.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic_armv5.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic_ia64.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic_mips.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic_x86.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic_unix.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qmutex.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qnumeric.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qstring.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qchar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qrefcount.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qarraydata.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qlist.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qalgorithms.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qbytearraylist.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qstringlist.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregexp.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreevent.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qscopedpointer.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qmetatype.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qvarlengtharray.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcontainerfwd.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qisenum.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qobject_impl.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Camera.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaC\Include\VimbaC.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaC\Include\VmbCommonTypes.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaCPPCommon.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IRegisterDevice.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FeatureContainer.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\BasicLockable.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointer.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Mutex.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointer_impl.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\UserSharedPointerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Feature.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IFeatureObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\EnumEntry.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\EnumEntry.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Feature.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FeatureContainer.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Frame.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IFrameObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\AncillaryData.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Camera.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\ICameraListObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaSystem.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\LoggerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\UserLoggerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FileLogger.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Interface.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Interface.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\ICameraFactory.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IInterfaceListObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaSystem.hpp \
+		..\QTerminal\cameraconnector.h
+	C:\Qt\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.5/msvc2013_64/mkspecs/win32-msvc2013 -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal -IC:/AlliedVisionTechnologies/AVTVimba_1.3/VimbaCPP/Include -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/INCLUDEPATH -I"C:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/+=" -IC:/AlliedVisionTechnologies/AVTVimba_1.3 -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/LIBS -I"C:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/+=" -IC:/AlliedVisionTechnologies/AVTVimba_1.3/VimbaC/Lib/Win64 -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/LIBS -I"C:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/+=" -IC:/AlliedVisionTechnologies/AVTVimba_1.3/VimbaCPP/Lib/Win64 -IC:/opencv/build/include -IC:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/LIBS -I"C:/Users/tobnu/Documents/Qt/QTerminal/QTerminal/+=" -IC:/opencv/build/x64/vc12/bin/*.dll -IC:/Qt/5.5/msvc2013_64/include -IC:/Qt/5.5/msvc2013_64/include/QtWidgets -IC:/Qt/5.5/msvc2013_64/include/QtGui -IC:/Qt/5.5/msvc2013_64/include/QtANGLE -IC:/Qt/5.5/msvc2013_64/include/QtSerialPort -IC:/Qt/5.5/msvc2013_64/include/QtCore -I. ..\QTerminal\cameraconnector.h -o release\moc_cameraconnector.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -1230,6 +1450,34 @@ release\main.obj: ..\QTerminal\main.cpp ../QTerminal/mainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\qtserialportversion.h \
 		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\QSerialPortInfo \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QIODevice \
+		C:\opencv\build\include\opencv2\opencv.hpp \
+		C:\opencv\build\include\opencv2\core\core_c.h \
+		C:\opencv\build\include\opencv2\core\types_c.h \
+		C:\opencv\build\include\opencv2\core\core.hpp \
+		C:\opencv\build\include\opencv2\core\version.hpp \
+		C:\opencv\build\include\opencv2\core\operations.hpp \
+		C:\opencv\build\include\opencv2\core\mat.hpp \
+		C:\opencv\build\include\opencv2\flann\miniflann.hpp \
+		C:\opencv\build\include\opencv2\flann\defines.h \
+		C:\opencv\build\include\opencv2\flann\config.h \
+		C:\opencv\build\include\opencv2\imgproc\imgproc_c.h \
+		C:\opencv\build\include\opencv2\imgproc\types_c.h \
+		C:\opencv\build\include\opencv2\imgproc\imgproc.hpp \
+		C:\opencv\build\include\opencv2\photo\photo.hpp \
+		C:\opencv\build\include\opencv2\photo\photo_c.h \
+		C:\opencv\build\include\opencv2\video\video.hpp \
+		C:\opencv\build\include\opencv2\video\tracking.hpp \
+		C:\opencv\build\include\opencv2\video\background_segm.hpp \
+		C:\opencv\build\include\opencv2\features2d\features2d.hpp \
+		C:\opencv\build\include\opencv2\objdetect\objdetect.hpp \
+		C:\opencv\build\include\opencv2\calib3d\calib3d.hpp \
+		C:\opencv\build\include\opencv2\core\affine.hpp \
+		C:\opencv\build\include\opencv2\ml\ml.hpp \
+		C:\opencv\build\include\opencv2\highgui\highgui_c.h \
+		C:\opencv\build\include\opencv2\highgui\highgui.hpp \
+		C:\opencv\build\include\opencv2\contrib\contrib.hpp \
+		C:\opencv\build\include\opencv2\contrib\retina.hpp \
+		C:\opencv\build\include\opencv2\contrib\openfabmap.hpp \
 		../QTerminal/serialconnector.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QThread \
@@ -1240,6 +1488,7 @@ release\main.obj: ..\QTerminal\main.cpp ../QTerminal/mainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialog \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialog.h \
 		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\QSerialPort \
+		../QTerminal/macrodialog.h \
 		ui_mainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
@@ -1255,9 +1504,19 @@ release\main.obj: ..\QTerminal\main.cpp ../QTerminal/mainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QCheckBox \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcheckbox.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QComboBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcombobox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
@@ -1267,14 +1526,6 @@ release\main.obj: ..\QTerminal\main.cpp ../QTerminal/mainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
-		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
@@ -1297,7 +1548,39 @@ release\main.obj: ..\QTerminal\main.cpp ../QTerminal/mainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtextedit.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextdocument.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
-		../QTerminal/macrodialog.h
+		../QTerminal/cameraconnector.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Camera.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaC\Include\VimbaC.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaC\Include\VmbCommonTypes.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaCPPCommon.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IRegisterDevice.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FeatureContainer.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\BasicLockable.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointer.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Mutex.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointer_impl.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\UserSharedPointerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Feature.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IFeatureObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\EnumEntry.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\EnumEntry.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Feature.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FeatureContainer.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Frame.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IFrameObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\AncillaryData.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Camera.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\ICameraListObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaSystem.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\LoggerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\UserLoggerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FileLogger.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Interface.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Interface.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\ICameraFactory.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IInterfaceListObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaSystem.hpp
 
 release\mainwindow.obj: ..\QTerminal\mainwindow.cpp ../QTerminal/mainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMainWindow \
@@ -1522,6 +1805,34 @@ release\mainwindow.obj: ..\QTerminal\mainwindow.cpp ../QTerminal/mainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\qtserialportversion.h \
 		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\QSerialPortInfo \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QIODevice \
+		C:\opencv\build\include\opencv2\opencv.hpp \
+		C:\opencv\build\include\opencv2\core\core_c.h \
+		C:\opencv\build\include\opencv2\core\types_c.h \
+		C:\opencv\build\include\opencv2\core\core.hpp \
+		C:\opencv\build\include\opencv2\core\version.hpp \
+		C:\opencv\build\include\opencv2\core\operations.hpp \
+		C:\opencv\build\include\opencv2\core\mat.hpp \
+		C:\opencv\build\include\opencv2\flann\miniflann.hpp \
+		C:\opencv\build\include\opencv2\flann\defines.h \
+		C:\opencv\build\include\opencv2\flann\config.h \
+		C:\opencv\build\include\opencv2\imgproc\imgproc_c.h \
+		C:\opencv\build\include\opencv2\imgproc\types_c.h \
+		C:\opencv\build\include\opencv2\imgproc\imgproc.hpp \
+		C:\opencv\build\include\opencv2\photo\photo.hpp \
+		C:\opencv\build\include\opencv2\photo\photo_c.h \
+		C:\opencv\build\include\opencv2\video\video.hpp \
+		C:\opencv\build\include\opencv2\video\tracking.hpp \
+		C:\opencv\build\include\opencv2\video\background_segm.hpp \
+		C:\opencv\build\include\opencv2\features2d\features2d.hpp \
+		C:\opencv\build\include\opencv2\objdetect\objdetect.hpp \
+		C:\opencv\build\include\opencv2\calib3d\calib3d.hpp \
+		C:\opencv\build\include\opencv2\core\affine.hpp \
+		C:\opencv\build\include\opencv2\ml\ml.hpp \
+		C:\opencv\build\include\opencv2\highgui\highgui_c.h \
+		C:\opencv\build\include\opencv2\highgui\highgui.hpp \
+		C:\opencv\build\include\opencv2\contrib\contrib.hpp \
+		C:\opencv\build\include\opencv2\contrib\retina.hpp \
+		C:\opencv\build\include\opencv2\contrib\openfabmap.hpp \
 		../QTerminal/serialconnector.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QThread \
@@ -1532,6 +1843,7 @@ release\mainwindow.obj: ..\QTerminal\mainwindow.cpp ../QTerminal/mainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialog \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialog.h \
 		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\QSerialPort \
+		../QTerminal/macrodialog.h \
 		ui_mainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
@@ -1547,9 +1859,19 @@ release\mainwindow.obj: ..\QTerminal\mainwindow.cpp ../QTerminal/mainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QCheckBox \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcheckbox.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QComboBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcombobox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
@@ -1559,14 +1881,6 @@ release\mainwindow.obj: ..\QTerminal\mainwindow.cpp ../QTerminal/mainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
-		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
@@ -1589,7 +1903,39 @@ release\mainwindow.obj: ..\QTerminal\mainwindow.cpp ../QTerminal/mainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtextedit.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextdocument.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
-		../QTerminal/macrodialog.h
+		../QTerminal/cameraconnector.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Camera.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaC\Include\VimbaC.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaC\Include\VmbCommonTypes.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaCPPCommon.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IRegisterDevice.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FeatureContainer.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\BasicLockable.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointer.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Mutex.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointer_impl.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\UserSharedPointerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Feature.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IFeatureObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\EnumEntry.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\EnumEntry.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Feature.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FeatureContainer.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Frame.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IFrameObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\AncillaryData.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Camera.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\ICameraListObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaSystem.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\LoggerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\UserLoggerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FileLogger.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Interface.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Interface.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\ICameraFactory.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IInterfaceListObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaSystem.hpp
 
 release\serialconnector.obj: ..\QTerminal\serialconnector.cpp ../QTerminal/serialconnector.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMainWindow \
@@ -1820,6 +2166,34 @@ release\serialconnector.obj: ..\QTerminal\serialconnector.cpp ../QTerminal/seria
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
 		../QTerminal/mainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QIODevice \
+		C:\opencv\build\include\opencv2\opencv.hpp \
+		C:\opencv\build\include\opencv2\core\core_c.h \
+		C:\opencv\build\include\opencv2\core\types_c.h \
+		C:\opencv\build\include\opencv2\core\core.hpp \
+		C:\opencv\build\include\opencv2\core\version.hpp \
+		C:\opencv\build\include\opencv2\core\operations.hpp \
+		C:\opencv\build\include\opencv2\core\mat.hpp \
+		C:\opencv\build\include\opencv2\flann\miniflann.hpp \
+		C:\opencv\build\include\opencv2\flann\defines.h \
+		C:\opencv\build\include\opencv2\flann\config.h \
+		C:\opencv\build\include\opencv2\imgproc\imgproc_c.h \
+		C:\opencv\build\include\opencv2\imgproc\types_c.h \
+		C:\opencv\build\include\opencv2\imgproc\imgproc.hpp \
+		C:\opencv\build\include\opencv2\photo\photo.hpp \
+		C:\opencv\build\include\opencv2\photo\photo_c.h \
+		C:\opencv\build\include\opencv2\video\video.hpp \
+		C:\opencv\build\include\opencv2\video\tracking.hpp \
+		C:\opencv\build\include\opencv2\video\background_segm.hpp \
+		C:\opencv\build\include\opencv2\features2d\features2d.hpp \
+		C:\opencv\build\include\opencv2\objdetect\objdetect.hpp \
+		C:\opencv\build\include\opencv2\calib3d\calib3d.hpp \
+		C:\opencv\build\include\opencv2\core\affine.hpp \
+		C:\opencv\build\include\opencv2\ml\ml.hpp \
+		C:\opencv\build\include\opencv2\highgui\highgui_c.h \
+		C:\opencv\build\include\opencv2\highgui\highgui.hpp \
+		C:\opencv\build\include\opencv2\contrib\contrib.hpp \
+		C:\opencv\build\include\opencv2\contrib\retina.hpp \
+		C:\opencv\build\include\opencv2\contrib\openfabmap.hpp \
 		ui_mainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
@@ -1835,9 +2209,19 @@ release\serialconnector.obj: ..\QTerminal\serialconnector.cpp ../QTerminal/seria
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QCheckBox \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcheckbox.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QComboBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcombobox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
@@ -1847,14 +2231,6 @@ release\serialconnector.obj: ..\QTerminal\serialconnector.cpp ../QTerminal/seria
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
-		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
@@ -1880,6 +2256,39 @@ release\serialconnector.obj: ..\QTerminal\serialconnector.cpp ../QTerminal/seria
 		../QTerminal/macrodialog.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialog \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialog.h \
+		../QTerminal/cameraconnector.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Camera.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaC\Include\VimbaC.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaC\Include\VmbCommonTypes.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaCPPCommon.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IRegisterDevice.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FeatureContainer.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\BasicLockable.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointer.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Mutex.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointer_impl.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\UserSharedPointerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Feature.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IFeatureObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\EnumEntry.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\EnumEntry.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Feature.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FeatureContainer.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Frame.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IFrameObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\AncillaryData.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Camera.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\ICameraListObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaSystem.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\LoggerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\UserLoggerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FileLogger.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Interface.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Interface.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\ICameraFactory.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IInterfaceListObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaSystem.hpp \
 		../QTerminal/settingsdialog.h \
 		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\QSerialPort
 
@@ -2324,6 +2733,34 @@ release\macrodialog.obj: ..\QTerminal\macrodialog.cpp ../QTerminal/macrodialog.h
 		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\qtserialportversion.h \
 		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\QSerialPortInfo \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QIODevice \
+		C:\opencv\build\include\opencv2\opencv.hpp \
+		C:\opencv\build\include\opencv2\core\core_c.h \
+		C:\opencv\build\include\opencv2\core\types_c.h \
+		C:\opencv\build\include\opencv2\core\core.hpp \
+		C:\opencv\build\include\opencv2\core\version.hpp \
+		C:\opencv\build\include\opencv2\core\operations.hpp \
+		C:\opencv\build\include\opencv2\core\mat.hpp \
+		C:\opencv\build\include\opencv2\flann\miniflann.hpp \
+		C:\opencv\build\include\opencv2\flann\defines.h \
+		C:\opencv\build\include\opencv2\flann\config.h \
+		C:\opencv\build\include\opencv2\imgproc\imgproc_c.h \
+		C:\opencv\build\include\opencv2\imgproc\types_c.h \
+		C:\opencv\build\include\opencv2\imgproc\imgproc.hpp \
+		C:\opencv\build\include\opencv2\photo\photo.hpp \
+		C:\opencv\build\include\opencv2\photo\photo_c.h \
+		C:\opencv\build\include\opencv2\video\video.hpp \
+		C:\opencv\build\include\opencv2\video\tracking.hpp \
+		C:\opencv\build\include\opencv2\video\background_segm.hpp \
+		C:\opencv\build\include\opencv2\features2d\features2d.hpp \
+		C:\opencv\build\include\opencv2\objdetect\objdetect.hpp \
+		C:\opencv\build\include\opencv2\calib3d\calib3d.hpp \
+		C:\opencv\build\include\opencv2\core\affine.hpp \
+		C:\opencv\build\include\opencv2\ml\ml.hpp \
+		C:\opencv\build\include\opencv2\highgui\highgui_c.h \
+		C:\opencv\build\include\opencv2\highgui\highgui.hpp \
+		C:\opencv\build\include\opencv2\contrib\contrib.hpp \
+		C:\opencv\build\include\opencv2\contrib\retina.hpp \
+		C:\opencv\build\include\opencv2\contrib\openfabmap.hpp \
 		../QTerminal/serialconnector.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QThread \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QScrollBar \
@@ -2331,6 +2768,8 @@ release\macrodialog.obj: ..\QTerminal\macrodialog.cpp ../QTerminal/macrodialog.h
 		../QTerminal/settingsdialog.h \
 		C:\Qt\5.5\msvc2013_64\include\QtSerialPort\QSerialPort \
 		ui_mainwindow.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QComboBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcombobox.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMenu \
@@ -2344,7 +2783,127 @@ release\macrodialog.obj: ..\QTerminal\macrodialog.cpp ../QTerminal/macrodialog.h
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtextbrowser.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtextedit.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextdocument.h \
+		../QTerminal/cameraconnector.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Camera.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaC\Include\VimbaC.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaC\Include\VmbCommonTypes.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaCPPCommon.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IRegisterDevice.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FeatureContainer.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\BasicLockable.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointer.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Mutex.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointer_impl.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\UserSharedPointerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Feature.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IFeatureObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\EnumEntry.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\EnumEntry.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Feature.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FeatureContainer.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Frame.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IFrameObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\AncillaryData.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Camera.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\ICameraListObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaSystem.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\LoggerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\UserLoggerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FileLogger.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Interface.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Interface.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\ICameraFactory.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IInterfaceListObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaSystem.hpp \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QDebug
+
+release\cameraconnector.obj: ..\QTerminal\cameraconnector.cpp ../QTerminal/cameraconnector.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QObject \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qobject.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qnamespace.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qglobal.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qconfig.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qfeatures.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qtypetraits.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qsysinfo.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qlogging.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qflags.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic_gcc.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic_armv7.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic_armv6.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic_armv5.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic_ia64.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic_mips.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic_x86.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qatomic_unix.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qmutex.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qnumeric.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qstring.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qchar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qrefcount.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qarraydata.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qlist.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qalgorithms.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qbytearraylist.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qstringlist.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregexp.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreevent.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qscopedpointer.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qmetatype.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qvarlengtharray.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcontainerfwd.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qisenum.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qobject_impl.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Camera.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaC\Include\VimbaC.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaC\Include\VmbCommonTypes.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaCPPCommon.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IRegisterDevice.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FeatureContainer.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\BasicLockable.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointer.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Mutex.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\SharedPointer_impl.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\UserSharedPointerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Feature.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IFeatureObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\EnumEntry.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\EnumEntry.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Feature.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FeatureContainer.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Frame.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IFrameObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\AncillaryData.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Camera.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\ICameraListObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaSystem.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\LoggerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\UserLoggerDefines.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\FileLogger.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Interface.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\Interface.hpp \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\ICameraFactory.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\IInterfaceListObserver.h \
+		C:\AlliedVisionTechnologies\AVTVimba_1.3\VimbaCPP\Include\VimbaSystem.hpp
 
 release\moc_mainwindow.obj: release\moc_mainwindow.cpp 
 
@@ -2353,6 +2912,8 @@ release\moc_serialconnector.obj: release\moc_serialconnector.cpp
 release\moc_settingsdialog.obj: release\moc_settingsdialog.cpp 
 
 release\moc_macrodialog.obj: release\moc_macrodialog.cpp 
+
+release\moc_cameraconnector.obj: release\moc_cameraconnector.cpp 
 
 ####### Install
 

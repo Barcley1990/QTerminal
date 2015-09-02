@@ -223,10 +223,5 @@ void SerialConnector::WriteToSerial(QString data)
         qDebug() << "Empty String" << endl;
 }
 
-void SerialConnector::SendMacroM1()
-{
-    //MacroDialog::macroEdited_1();
 
-    qDebug() << "SendM1" << MacroDialog::test;
-}
 
