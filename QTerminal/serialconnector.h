@@ -29,7 +29,7 @@ public:
     void WriteToSerial(QString);
 
     QByteArray m_qb;
-
+    QSerialPort *m_serial;
 
 signals:
     void finished();
@@ -48,7 +48,7 @@ public slots:
     void ReadFromSerial();
 
 private:
-    QSerialPort *m_serial;
+
     SettingsDialog *m_settings;
 
     bool m_CR;

@@ -558,7 +558,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
           </widget>
          </item>
          <item>
-          <widget class="QCheckBox" name="macroRepeat_1">
+          <widget class="QCheckBox" name="macroRepeatCB_1">
            <property name="text">
             <string/>
            </property>
@@ -586,7 +586,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
           </widget>
          </item>
          <item>
-          <widget class="QCheckBox" name="macroRepeat_2">
+          <widget class="QCheckBox" name="macroRepeatCB_2">
            <property name="text">
             <string/>
            </property>
@@ -616,7 +616,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="macroRepeat_3">
+        <widget class="QCheckBox" name="macroRepeatCB_3">
          <property name="text">
           <string/>
          </property>
@@ -644,7 +644,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="macroRepeat_4">
+        <widget class="QCheckBox" name="macroRepeatCB_4">
          <property name="text">
           <string/>
          </property>

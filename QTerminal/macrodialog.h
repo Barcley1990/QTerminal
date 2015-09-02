@@ -15,6 +15,7 @@ class MacroDialog : public QDialog
 public:
     struct Macros {
         QString name, value, repeatTime;
+        bool bM1RepeatCheckbox;
     }m1;
 
     explicit MacroDialog(QWidget *parent = 0);

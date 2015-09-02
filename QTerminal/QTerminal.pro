@@ -28,13 +28,13 @@ SOURCES += main.cpp\
         serialconnector.cpp \
         settingsdialog.cpp \
         macrodialog.cpp \
-    cameraconnector.cpp
+        cameraconnector.cpp
 
 HEADERS  += mainwindow.h \
          serialconnector.h \
          settingsdialog.h \
          macrodialog.h \
-    cameraconnector.h
+         cameraconnector.h
 
 FORMS    += mainwindow.ui \
          settingsdialog.ui \

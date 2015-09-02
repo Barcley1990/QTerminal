@@ -41,22 +41,22 @@ public:
     QLineEdit *macroEdit_1;
     QLineEdit *macroName_1;
     QLineEdit *macroRepeatTime_1;
-    QCheckBox *macroRepeat_1;
+    QCheckBox *macroRepeatCB_1;
     QHBoxLayout *horizontalLayout_4;
     QLineEdit *macroEdit_2;
     QLineEdit *macroName_2;
     QLineEdit *macroRepeatTime_2;
-    QCheckBox *macroRepeat_2;
+    QCheckBox *macroRepeatCB_2;
     QHBoxLayout *horizontalLayout_5;
     QLineEdit *macroEdit_3;
     QLineEdit *macroName_3;
     QLineEdit *macroRepeatTime_3;
-    QCheckBox *macroRepeat_3;
+    QCheckBox *macroRepeatCB_3;
     QHBoxLayout *horizontalLayout_6;
     QLineEdit *macroEdit_4;
     QLineEdit *macroName_4;
     QLineEdit *macroRepeatTime_4;
-    QCheckBox *macroRepeat_4;
+    QCheckBox *macroRepeatCB_4;
 
     void setupUi(QDialog *MacroDialog)
     {
@@ -581,10 +581,10 @@ public:
 
         horizontalLayout_3->addWidget(macroRepeatTime_1);
 
-        macroRepeat_1 = new QCheckBox(layoutWidget1);
-        macroRepeat_1->setObjectName(QStringLiteral("macroRepeat_1"));
+        macroRepeatCB_1 = new QCheckBox(layoutWidget1);
+        macroRepeatCB_1->setObjectName(QStringLiteral("macroRepeatCB_1"));
 
-        horizontalLayout_3->addWidget(macroRepeat_1);
+        horizontalLayout_3->addWidget(macroRepeatCB_1);
 
 
         verticalLayout->addLayout(horizontalLayout_3);
@@ -606,10 +606,10 @@ public:
 
         horizontalLayout_4->addWidget(macroRepeatTime_2);
 
-        macroRepeat_2 = new QCheckBox(layoutWidget1);
-        macroRepeat_2->setObjectName(QStringLiteral("macroRepeat_2"));
+        macroRepeatCB_2 = new QCheckBox(layoutWidget1);
+        macroRepeatCB_2->setObjectName(QStringLiteral("macroRepeatCB_2"));
 
-        horizontalLayout_4->addWidget(macroRepeat_2);
+        horizontalLayout_4->addWidget(macroRepeatCB_2);
 
 
         verticalLayout->addLayout(horizontalLayout_4);
@@ -634,10 +634,10 @@ public:
 
         horizontalLayout_5->addWidget(macroRepeatTime_3);
 
-        macroRepeat_3 = new QCheckBox(layoutWidget1);
-        macroRepeat_3->setObjectName(QStringLiteral("macroRepeat_3"));
+        macroRepeatCB_3 = new QCheckBox(layoutWidget1);
+        macroRepeatCB_3->setObjectName(QStringLiteral("macroRepeatCB_3"));
 
-        horizontalLayout_5->addWidget(macroRepeat_3);
+        horizontalLayout_5->addWidget(macroRepeatCB_3);
 
 
         verticalLayout_2->addLayout(horizontalLayout_5);
@@ -659,10 +659,10 @@ public:
 
         horizontalLayout_6->addWidget(macroRepeatTime_4);
 
-        macroRepeat_4 = new QCheckBox(layoutWidget1);
-        macroRepeat_4->setObjectName(QStringLiteral("macroRepeat_4"));
+        macroRepeatCB_4 = new QCheckBox(layoutWidget1);
+        macroRepeatCB_4->setObjectName(QStringLiteral("macroRepeatCB_4"));
 
-        horizontalLayout_6->addWidget(macroRepeat_4);
+        horizontalLayout_6->addWidget(macroRepeatCB_4);
 
 
         verticalLayout_2->addLayout(horizontalLayout_6);
@@ -682,16 +682,16 @@ public:
         groupBox_2->setTitle(QApplication::translate("MacroDialog", "Transmit", 0));
         macroName_1->setText(QApplication::translate("MacroDialog", "M1", 0));
         macroRepeatTime_1->setText(QApplication::translate("MacroDialog", "1000", 0));
-        macroRepeat_1->setText(QString());
+        macroRepeatCB_1->setText(QString());
         macroName_2->setText(QApplication::translate("MacroDialog", "M2", 0));
         macroRepeatTime_2->setText(QApplication::translate("MacroDialog", "1000", 0));
-        macroRepeat_2->setText(QString());
+        macroRepeatCB_2->setText(QString());
         macroName_3->setText(QApplication::translate("MacroDialog", "M3", 0));
         macroRepeatTime_3->setText(QApplication::translate("MacroDialog", "1000", 0));
-        macroRepeat_3->setText(QString());
+        macroRepeatCB_3->setText(QString());
         macroName_4->setText(QApplication::translate("MacroDialog", "M4", 0));
         macroRepeatTime_4->setText(QApplication::translate("MacroDialog", "1000", 0));
-        macroRepeat_4->setText(QString());
+        macroRepeatCB_4->setText(QString());
     } // retranslateUi
 
 };

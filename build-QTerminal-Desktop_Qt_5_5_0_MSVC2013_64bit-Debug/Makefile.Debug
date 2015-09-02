@@ -434,6 +434,7 @@ debug\moc_mainwindow.cpp: C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMainWindow \
 		C:\opencv\build\include\opencv2\contrib\contrib.hpp \
 		C:\opencv\build\include\opencv2\contrib\retina.hpp \
 		C:\opencv\build\include\opencv2\contrib\openfabmap.hpp \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QTimer \
 		..\QTerminal\serialconnector.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QThread \
@@ -797,6 +798,7 @@ debug\moc_serialconnector.cpp: C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMainWind
 		C:\opencv\build\include\opencv2\contrib\contrib.hpp \
 		C:\opencv\build\include\opencv2\contrib\retina.hpp \
 		C:\opencv\build\include\opencv2\contrib\openfabmap.hpp \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QTimer \
 		..\QTerminal\serialconnector.h \
 		..\QTerminal\settingsdialog.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialog \
@@ -1478,6 +1480,7 @@ debug\main.obj: ..\QTerminal\main.cpp ../QTerminal/mainwindow.h \
 		C:\opencv\build\include\opencv2\contrib\contrib.hpp \
 		C:\opencv\build\include\opencv2\contrib\retina.hpp \
 		C:\opencv\build\include\opencv2\contrib\openfabmap.hpp \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QTimer \
 		../QTerminal/serialconnector.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QThread \
@@ -1833,6 +1836,7 @@ debug\mainwindow.obj: ..\QTerminal\mainwindow.cpp ../QTerminal/mainwindow.h \
 		C:\opencv\build\include\opencv2\contrib\contrib.hpp \
 		C:\opencv\build\include\opencv2\contrib\retina.hpp \
 		C:\opencv\build\include\opencv2\contrib\openfabmap.hpp \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QTimer \
 		../QTerminal/serialconnector.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QThread \
@@ -2194,6 +2198,7 @@ debug\serialconnector.obj: ..\QTerminal\serialconnector.cpp ../QTerminal/serialc
 		C:\opencv\build\include\opencv2\contrib\contrib.hpp \
 		C:\opencv\build\include\opencv2\contrib\retina.hpp \
 		C:\opencv\build\include\opencv2\contrib\openfabmap.hpp \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QTimer \
 		ui_mainwindow.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
@@ -2761,6 +2766,7 @@ debug\macrodialog.obj: ..\QTerminal\macrodialog.cpp ../QTerminal/macrodialog.h \
 		C:\opencv\build\include\opencv2\contrib\contrib.hpp \
 		C:\opencv\build\include\opencv2\contrib\retina.hpp \
 		C:\opencv\build\include\opencv2\contrib\openfabmap.hpp \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QTimer \
 		../QTerminal/serialconnector.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QThread \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QScrollBar \

@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QCheckBox>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
@@ -39,6 +40,7 @@ public:
     QAction *actionQuit;
     QAction *actionAbout;
     QAction *actionConfigure;
+    QAction *actionSet_Makros;
     QWidget *centralWidget;
     QGroupBox *groupBox;
     QWidget *layoutWidget;
@@ -67,7 +69,6 @@ public:
     QVBoxLayout *verticalLayout_5;
     QCheckBox *checkBoxDTR;
     QCheckBox *checkBox_4;
-    QCheckBox *checkBox;
     QWidget *layoutWidget2;
     QHBoxLayout *horizontalLayout_7;
     QPushButton *connectButton;
@@ -86,10 +87,22 @@ public:
     QLabel *DatabitsLabel;
     QLabel *parityLabel;
     QLabel *statusLabel;
+    QGroupBox *groupBox_3;
+    QPushButton *setMacrosButton;
+    QPushButton *m1Button;
+    QPushButton *m2Button;
+    QPushButton *m3Button;
+    QPushButton *m4Button;
+    QGroupBox *groupBox_4;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout_5;
+    QPushButton *searchCamButton;
+    QComboBox *availableCamCB;
     QMenuBar *menuBar;
     QMenu *menuMain;
     QMenu *menuTerminal;
     QMenu *menuCalls;
+    QMenu *menuMacros;
     QMenu *menuHelp;
     QStatusBar *statusBar;
 
@@ -97,9 +110,9 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(738, 430);
+        MainWindow->resize(1000, 647);
         MainWindow->setMinimumSize(QSize(738, 430));
-        MainWindow->setMaximumSize(QSize(738, 430));
+        MainWindow->setMaximumSize(QSize(1000, 800));
         MainWindow->setStyleSheet(QLatin1String("QToolTip\n"
 "{\n"
 "     border: 1px solid black;\n"
@@ -581,6 +594,8 @@ public:
         actionAbout->setObjectName(QStringLiteral("actionAbout"));
         actionConfigure = new QAction(MainWindow);
         actionConfigure->setObjectName(QStringLiteral("actionConfigure"));
+        actionSet_Makros = new QAction(MainWindow);
+        actionSet_Makros->setObjectName(QStringLiteral("actionSet_Makros"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         groupBox = new QGroupBox(centralWidget);
@@ -709,11 +724,6 @@ public:
 
         verticalLayout_5->addWidget(checkBox_4);
 
-        checkBox = new QCheckBox(layoutWidget1);
-        checkBox->setObjectName(QStringLiteral("checkBox"));
-
-        verticalLayout_5->addWidget(checkBox);
-
 
         horizontalLayout_8->addLayout(verticalLayout_5);
 
@@ -796,17 +806,58 @@ public:
 
         statusLabel = new QLabel(centralWidget);
         statusLabel->setObjectName(QStringLiteral("statusLabel"));
-        statusLabel->setGeometry(QRect(10, 340, 261, 16));
+        statusLabel->setGeometry(QRect(10, 460, 261, 16));
+        groupBox_3 = new QGroupBox(centralWidget);
+        groupBox_3->setObjectName(QStringLiteral("groupBox_3"));
+        groupBox_3->setGeometry(QRect(10, 340, 701, 91));
+        setMacrosButton = new QPushButton(groupBox_3);
+        setMacrosButton->setObjectName(QStringLiteral("setMacrosButton"));
+        setMacrosButton->setGeometry(QRect(10, 20, 75, 23));
+        m1Button = new QPushButton(groupBox_3);
+        m1Button->setObjectName(QStringLiteral("m1Button"));
+        m1Button->setGeometry(QRect(100, 20, 75, 23));
+        m2Button = new QPushButton(groupBox_3);
+        m2Button->setObjectName(QStringLiteral("m2Button"));
+        m2Button->setGeometry(QRect(180, 20, 75, 23));
+        m3Button = new QPushButton(groupBox_3);
+        m3Button->setObjectName(QStringLiteral("m3Button"));
+        m3Button->setGeometry(QRect(260, 20, 75, 23));
+        m4Button = new QPushButton(groupBox_3);
+        m4Button->setObjectName(QStringLiteral("m4Button"));
+        m4Button->setGeometry(QRect(340, 20, 75, 23));
+        groupBox_4 = new QGroupBox(centralWidget);
+        groupBox_4->setObjectName(QStringLiteral("groupBox_4"));
+        groupBox_4->setGeometry(QRect(720, 10, 231, 421));
+        widget = new QWidget(groupBox_4);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(10, 20, 211, 24));
+        horizontalLayout_5 = new QHBoxLayout(widget);
+        horizontalLayout_5->setSpacing(6);
+        horizontalLayout_5->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
+        horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
+        searchCamButton = new QPushButton(widget);
+        searchCamButton->setObjectName(QStringLiteral("searchCamButton"));
+
+        horizontalLayout_5->addWidget(searchCamButton);
+
+        availableCamCB = new QComboBox(widget);
+        availableCamCB->setObjectName(QStringLiteral("availableCamCB"));
+
+        horizontalLayout_5->addWidget(availableCamCB);
+
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 738, 21));
+        menuBar->setGeometry(QRect(0, 0, 1000, 21));
         menuMain = new QMenu(menuBar);
         menuMain->setObjectName(QStringLiteral("menuMain"));
         menuTerminal = new QMenu(menuBar);
         menuTerminal->setObjectName(QStringLiteral("menuTerminal"));
         menuCalls = new QMenu(menuTerminal);
         menuCalls->setObjectName(QStringLiteral("menuCalls"));
+        menuMacros = new QMenu(menuTerminal);
+        menuMacros->setObjectName(QStringLiteral("menuMacros"));
         menuHelp = new QMenu(menuBar);
         menuHelp->setObjectName(QStringLiteral("menuHelp"));
         MainWindow->setMenuBar(menuBar);
@@ -820,8 +871,10 @@ public:
         menuMain->addAction(actionQuit);
         menuTerminal->addAction(menuCalls->menuAction());
         menuTerminal->addAction(actionConfigure);
+        menuTerminal->addAction(menuMacros->menuAction());
         menuCalls->addAction(actionConnect);
         menuCalls->addAction(actionDisconnect);
+        menuMacros->addAction(actionSet_Makros);
         menuHelp->addAction(actionAbout);
 
         retranslateUi(MainWindow);
@@ -840,6 +893,7 @@ public:
         actionQuit->setText(QApplication::translate("MainWindow", "Quit", 0));
         actionAbout->setText(QApplication::translate("MainWindow", "About", 0));
         actionConfigure->setText(QApplication::translate("MainWindow", "Configure", 0));
+        actionSet_Makros->setText(QApplication::translate("MainWindow", "Set Makros", 0));
         groupBox->setTitle(QApplication::translate("MainWindow", "Serial", 0));
         label->setText(QApplication::translate("MainWindow", "Output", 0));
         ClearButton1->setText(QApplication::translate("MainWindow", "Clear", 0));
@@ -852,8 +906,7 @@ public:
         checkBoxLF->setText(QApplication::translate("MainWindow", "LF", 0));
         checkBoxCRLF->setText(QApplication::translate("MainWindow", "CR + LF", 0));
         checkBoxDTR->setText(QApplication::translate("MainWindow", "DTR", 0));
-        checkBox_4->setText(QApplication::translate("MainWindow", "CheckBox", 0));
-        checkBox->setText(QApplication::translate("MainWindow", "CheckBox", 0));
+        checkBox_4->setText(QApplication::translate("MainWindow", "RTS", 0));
         connectButton->setText(QApplication::translate("MainWindow", "Connect", 0));
         disconnectButton->setText(QApplication::translate("MainWindow", "Disconnect", 0));
         settingsButton->setText(QApplication::translate("MainWindow", "Configure", 0));
@@ -866,9 +919,18 @@ public:
         DatabitsLabel->setText(QApplication::translate("MainWindow", "nA", 0));
         parityLabel->setText(QApplication::translate("MainWindow", "nA", 0));
         statusLabel->setText(QApplication::translate("MainWindow", "Disconected", 0));
+        groupBox_3->setTitle(QApplication::translate("MainWindow", "Macros", 0));
+        setMacrosButton->setText(QApplication::translate("MainWindow", "Set Macros", 0));
+        m1Button->setText(QApplication::translate("MainWindow", "M1", 0));
+        m2Button->setText(QApplication::translate("MainWindow", "M2", 0));
+        m3Button->setText(QApplication::translate("MainWindow", "M3", 0));
+        m4Button->setText(QApplication::translate("MainWindow", "M4", 0));
+        groupBox_4->setTitle(QApplication::translate("MainWindow", "Camera", 0));
+        searchCamButton->setText(QApplication::translate("MainWindow", "Search", 0));
         menuMain->setTitle(QApplication::translate("MainWindow", "Main", 0));
         menuTerminal->setTitle(QApplication::translate("MainWindow", "Terminal", 0));
         menuCalls->setTitle(QApplication::translate("MainWindow", "Calls", 0));
+        menuMacros->setTitle(QApplication::translate("MainWindow", "Macros", 0));
         menuHelp->setTitle(QApplication::translate("MainWindow", "Help", 0));
     } // retranslateUi
 

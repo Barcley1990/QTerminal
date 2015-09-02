@@ -27,8 +27,6 @@ SerialConnector::SerialConnector(MainWindow *mWindow) : myMainWindow(mWindow)
     connect(myMainWindow->sendButton, SIGNAL(clicked()), this, SLOT(getDataFromInputBox()));	// Write to Serial
 
     connect(myMainWindow->actionConfigure, SIGNAL(triggered()), m_settings, SLOT(show()));
-
-  //  connect(myMainWindow->m1Button, SIGNAL(clicked()), this, SLOT(SendMacroM1()));qDebug() <<"??";
 }
 
 SerialConnector::~SerialConnector()

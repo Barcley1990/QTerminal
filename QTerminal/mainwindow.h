@@ -12,6 +12,7 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
+#include <QTimer>
 
 #include "serialconnector.h"
 #include "ui_mainwindow.h"
@@ -32,6 +33,7 @@ public:
 
 public slots:
     void updateMacroButtons(QString string);
+     void timerHandler();
     void SendMacroM1();
 
 private:
@@ -39,6 +41,8 @@ private:
     SerialConnector *m_com;
     MacroDialog *m_macros;
     CameraConnector *m_camera;
+
+    QTimer *timer1;
 
 };
 
