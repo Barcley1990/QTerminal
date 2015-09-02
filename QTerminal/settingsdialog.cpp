@@ -159,7 +159,7 @@ void SettingsDialog::fillPortsInfo()
         description = info.description();
         manufacturer = info.manufacturer();
         serialNumber = info.serialNumber();
-        list << info.portName()
+        list << info.systemLocation()
              << (!description.isEmpty() ? description : blankString)
              << (!manufacturer.isEmpty() ? manufacturer : blankString)
              << (!serialNumber.isEmpty() ? serialNumber : blankString)
@@ -176,7 +176,6 @@ void SettingsDialog::fillPortsInfo()
 void SettingsDialog::updateSettings()
 {
     currentSettings.name = ui->serialPortInfoListBox->currentText();
-
     if (ui->baudRateBox->currentIndex() == 4) {
         currentSettings.baudRate = ui->baudRateBox->currentText().toInt();
     } else {

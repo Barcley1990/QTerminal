@@ -38,10 +38,10 @@ SerialConnector::~SerialConnector()
         myMainWindow->statusLabel->setText("Disconnected");
     }
     delete m_serial;
-    m_serial = nullptr;
+    m_serial = NULL;
 
     delete m_settings;
-    m_settings = nullptr;
+    m_settings = NULL;
 }
 
 
@@ -72,18 +72,17 @@ void SerialConnector::openSerialPort()
     m_serial->setStopBits(p.stopBits);
     m_serial->setFlowControl(p.flowControl);
 
-
+    qDebug() << "OpenSerialPort";
     if (m_serial->open(QIODevice::ReadWrite))
     {
-        qDebug() << "openSerialPort()";
+        qDebug() << "SerialPortIsOpen";
+        // set connect button's text to Reconnect
+        myMainWindow->connectButton->setText("Reconnect");
+        myMainWindow->statusLabel->setText("Conected");
+
+        myMainWindow->actionConnect->setEnabled(false);
+        myMainWindow->actionDisconnect->setEnabled(true);
     }
-
-    // set connect button's text to Reconnect
-    myMainWindow->connectButton->setText("Reconnect");
-    myMainWindow->statusLabel->setText("Conected");
-
-    myMainWindow->actionConnect->setEnabled(false);
-    myMainWindow->actionDisconnect->setEnabled(true);
 }
 void SerialConnector::DTR_Checkbox(int arg)
 {
@@ -144,6 +143,7 @@ void SerialConnector::getDataFromInputBox()
 {
     if (m_serial && !m_serial->isOpen())
     return;
+    qDebug() << "GetDataFromInput";
     QString inputString = myMainWindow->inputBox->displayText();
     WriteToSerial(inputString);
 }

@@ -2,9 +2,9 @@
 #define CAMERACONNECTOR_H
 
 #include <QObject>
-#include <Camera.h>
-#include <ICameraListObserver.h>
-#include <VimbaSystem.h>
+//#include <Camera.h>
+//#include <ICameraListObserver.h>
+//#include <VimbaSystem.h>
 
 class CameraConnector : public QObject
 {

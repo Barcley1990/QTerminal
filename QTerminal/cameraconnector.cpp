@@ -1,7 +1,7 @@
 #include "cameraconnector.h"
-#include <Camera.h>
-#include <ICameraListObserver.h>
-#include <VimbaSystem.h>
+//#include <Camera.h>
+//#include <ICameraListObserver.h>
+//#include <VimbaSystem.h>
 
 
 CameraConnector::CameraConnector(QObject *parent) : QObject(parent)
