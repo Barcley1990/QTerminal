@@ -32,9 +32,18 @@ public:
     void initActionsConnections();
 
 public slots:
-    void updateMacroButtons(QString string);
-     void timerHandler();
+    void updateMacro1Buttons(QString string);
+    void updateMacro2Buttons(QString string);
+    void updateMacro3Buttons(QString string);
+    void updateMacro4Buttons(QString string);
+    void timerHandler1();
+    void timerHandler2();
+    void timerHandler3();
+    void timerHandler4();
     void SendMacroM1();
+    void SendMacroM2();
+    void SendMacroM3();
+    void SendMacroM4();
 
 private:
     //Ui::MainWindow *ui;
@@ -42,7 +51,7 @@ private:
     MacroDialog *m_macros;
     CameraConnector *m_camera;
 
-    QTimer *timer1;
+    QTimer *timer1, *timer2, *timer3, *timer4;
 
 };
 

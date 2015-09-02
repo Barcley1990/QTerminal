@@ -202,7 +202,7 @@ void SerialConnector::WriteToSerial(QString data)
         }
         if (m_CRLF)
         {
-            qb.append('\r\n');
+            qb.append("\r\n");
         }
 
         int complete_size = qb.size();
